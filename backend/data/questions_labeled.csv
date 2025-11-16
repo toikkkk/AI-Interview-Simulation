@@ -1,0 +1,61 @@
+id,question,pseudo_label,pseudo_score,second_label,second_score
+1,Apa itu data analisis dan apa tujuannya dalam bisnis?,Data_Analyst_Junior,0.08739115798350233,Data_Analyst_Senior,0.058309000157633836
+2,Bagaimana cara kamu menangani data yang hilang (missing values) dalam dataset?,Data_Analyst_Junior,0.058782557339302606,Data_Engineer_Junior,0.05507261388443291
+3,Dapatkah kamu menggambarkan langkah-langkah yang kamu lakukan saat menganalisis dataset baru?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+4,Apa yang dimaksud dengan outlier dan bagaimana kamu mengidentifikasinya?,Data_Analyst_Junior,0.0360655708417216,ML_Engineer_Senior,0.01976823871556064
+5,Bagaimana cara menggunakan SQL untuk menampilkan total jumlah penjualan dari tabel `sales`?,Data_Engineer_Junior,0.028468094587950212,Data_Analyst_Junior,0.020754327461600015
+6,Apa langkah-langkah dasar dalam visualisasi data yang efektif?,Data_Analyst_Junior,0.07313657386856823,Data_Engineer_Junior,0.05583156774190918
+7,Apa perbedaan antara analisis deskriptif dan analisis inferensial?,Data_Analyst_Junior,0.10518198123091663,Data_Analyst_Senior,0.031682272728068055
+8,Bagaimana kamu memastikan kualitas data yang akan dianalisis?,Data_Analyst_Senior,0.049063677736494685,Data_Engineer_Junior,0.03332695023202485
+9,"Mengapa penting untuk mengetahui jenis data (numerik, kategorikal)?",Data_Engineer_Junior,0.036939649858273645,Data_Engineer_Senior,0.028382110689579645
+10,Bagaimana cara kamu menggunakan alat seperti Excel atau Python dalam analisis data?,Data_Analyst_Junior,0.07048137544532343,Data_Engineer_Junior,0.04193941686672652
+11,Bagaimana kamu mendefinisikan â€œdata-driven decision-makingâ€ dan mengapa penting dalam bisnis?,Data_Analyst_Junior,0.03464155783056323,Data_Analyst_Senior,0.033852848997504306
+12,Ceritakan pengalamanmu tentang proyek analisis data yang paling kompleks yang pernah kamu kerjakan.,Data_Analyst_Junior,0.04968885396580766,Data_Analyst_Senior,0.03318921885049057
+13,Bagaimana kamu memastikan kualitas data dalam analisis yang kamu lakukan?,Data_Analyst_Senior,0.06410128458673472,Data_Analyst_Junior,0.052388995337731906
+14,Apa pendekatanmu saat mempresentasikan hasil analisis kepada pemangku kepentingan non-teknis?,Data_Analyst_Junior,0.048405100155088976,Data_Analyst_Senior,0.012828455741148196
+15,"Dalam konteks alat analisis, platform atau perangkat lunak mana yang paling kamu kuasai dan mengapa?",Data_Analyst_Junior,0.016234421001589675,Data_Engineer_Senior,0.014409334985144412
+16,Bagaimana cara kamu menangani dan menganalisis data besar (big data)?,Data_Engineer_Senior,0.09879533771814314,Data_Engineer_Junior,0.06959668571109495
+17,Ceritakan tentang pengalamanmu menggunakan machine learning dalam analisis data.,Data_Analyst_Junior,0.06524167340247529,ML_Engineer_Junior,0.05204212127629345
+18,"Bagaimana kamu berkolaborasi dengan tim lintas fungsi, seperti tim TI atau pemasaran, dalam proyek analisis data?",Data_Analyst_Junior,0.04058891749972189,Data_Analyst_Senior,0.02524230819987437
+19,"Apa tantangan terbesar yang pernah kamu hadapi dalam analisis data, dan bagaimana kamu mengatasinya?",Data_Analyst_Junior,0.04938597555367412,Data_Engineer_Junior,0.024462276823310657
+20,Apa indikator kinerja utama (KPI) yang kamu gunakan untuk menilai keberhasilan suatu analisis data?,Data_Analyst_Junior,0.04495546359463217,Data_Analyst_Senior,0.03355825000487714
+21,"Apa yang kamu ketahui tentang ETL (Extract, Transform, Load) dan mengapa itu penting dalam pengolahan data?",Data_Engineer_Junior,0.12811492153982554,Data_Analyst_Junior,0.019386483491240242
+22,Bagaimana cara kamu melakukan pembersihan data (data cleaning)?,Data_Analyst_Junior,0.1304759207402342,Data_Engineer_Junior,0.10344177866690248
+23,Apa itu data warehouse dan sebutkan beberapa contoh sistem data warehouse yang umum digunakan?,Data_Engineer_Junior,0.10387464582032702,Data_Engineer_Senior,0.03809171042000779
+24,Bagaimana cara kamu memastikan keamanan data dalam sistem yang kamu bangun?,Data_Engineer_Senior,0.03132033032111023,Data_Engineer_Junior,0.030073861548588154
+25,"Apa itu normalisasi dalam konteks basis data, dan mengapa itu diperlukan?",Data_Engineer_Junior,0.026292579427537977,Data_Analyst_Junior,0.022729311108804377
+26,Dapatkah kamu menjelaskan perbedaan antara SQL dan NoSQL?,Data_Analyst_Junior,0.041238047393990444,Data_Engineer_Junior,0.028621755354206264
+27,Apa pentingnya indeks dalam database dan bagaimana cara kerjanya?,Data_Engineer_Junior,0.05633014368173884,ML_Engineer_Senior,0.006976722907859235
+28,Bagaimana kamu mengelola dan mendokumentasikan proses atau alur kerja dalam proyek yang kamu kerjakan?,ML_Engineer_Senior,0.005214900992134618,Data_Analyst_Junior,0.0
+29,Bisakah kamu memberi contoh bagaimana kamu menggunakan Python dalam pengolahan data?,Data_Engineer_Junior,0.04148594787355694,Data_Analyst_Junior,0.022503399010421584
+30,Apa itu data pipeline dan sebutkan komponen utama yang terlibat dalam membangunnya?,Data_Engineer_Junior,0.0646190527895607,Data_Engineer_Senior,0.061448820344795374
+31,"Jelaskan arsitektur pipeline data yang pernah kamu desain. Bagaimana kamu mempertimbangkan skalabilitas, keandalan, dan biaya operasional?",ML_Engineer_Senior,0.088794081732797,Data_Engineer_Senior,0.07516254479222645
+32,Bagaimana pendekatanmu dalam mengelola data lineage dan metadata untuk auditabilitas sistem data?,Data_Engineer_Senior,0.06620824877836363,Data_Engineer_Junior,0.055875653409346054
+33,Ceritakan tentang pengalamanmu dalam mengoptimalkan kinerja query di database besar. Apa strategi yang kamu gunakan?,Data_Engineer_Junior,0.02601825146420269,Data_Engineer_Senior,0.024506842568027182
+34,Bagaimana kamu menangani pengelolaan skema dan migrasi data dalam sistem yang terus berubah?,Data_Engineer_Junior,0.03349497069066311,Data_Engineer_Senior,0.025493796728779904
+35,Apa pengalamanmu dalam bekerja dengan data real-time? Sebutkan teknologi yang digunakan dan tantangan yang dihadapi.,Data_Analyst_Senior,0.041099541542431076,ML_Engineer_Senior,0.03153231089870995
+36,Apa peranmu dalam kolaborasi lintas tim saat menyusun solusi data?,ML_Engineer_Senior,0.03986940132826412,Data_Engineer_Junior,0.026105708105200617
+37,Bagaimana strategi kamu dalam menjaga keamanan data dalam sistem yang kamu bangun?,Data_Engineer_Senior,0.02728878662805454,Data_Engineer_Junior,0.026202762948765255
+38,Jelaskan bagaimana kamu menangani data duplikat dalam pemrosesan ETL.,Data_Engineer_Junior,0.08111683180887001,Data_Analyst_Junior,0.046672875088241486
+39,Apa pengalamanmu dalam menggunakan cloud services untuk data engineering? Sebutkan layanan dan bagaimana kamu memanfaatkannya.,Data_Engineer_Senior,0.03779723069535801,Data_Engineer_Junior,0.029182919948068264
+40,Bagaimana kamu melakukan monitoring dan alerting dalam sistem data yang kompleks?,Data_Engineer_Senior,0.06692038492283361,ML_Engineer_Senior,0.05730965105260805
+41,"Apa itu machine learning, dan bagaimana cara kerjanya secara umum?",ML_Engineer_Junior,0.04910378860957918,ML_Engineer_Senior,0.03320653311084715
+42,Apa perbedaan antara supervised learning dan unsupervised learning?,ML_Engineer_Junior,0.14398269729060162,ML_Engineer_Senior,0.03817120403032294
+43,Apa itu overfitting dan bagaimana cara menghindarinya?,ML_Engineer_Junior,0.023055953655567014,ML_Engineer_Senior,0.008648373491005612
+44,Sebutkan beberapa teknik preprocessing data yang umum digunakan sebelum membangun model ML.,ML_Engineer_Senior,0.05795810446371971,ML_Engineer_Junior,0.026439825917101072
+45,"Apa itu model validation, dan mengapa itu penting?",ML_Engineer_Junior,0.08351735264001804,ML_Engineer_Senior,0.05551328933506313
+46,Dapatkah Anda menjelaskan apa itu confusion matrix dan bagaimana cara membacanya?,ML_Engineer_Junior,0.06018619484397224,Data_Analyst_Junior,0.012774423498025121
+47,Bagaimana cara memilih algoritma machine learning yang tepat untuk suatu masalah?,ML_Engineer_Junior,0.0600555205010358,ML_Engineer_Senior,0.030463060446573535
+48,Apa yang dimaksud dengan feature engineering dan mengapa itu penting?,ML_Engineer_Junior,0.05073196375310224,ML_Engineer_Senior,0.04677410712395609
+49,Bagaimana Anda menangani data yang tidak seimbang (imbalanced data) dalam masalah klasifikasi?,Data_Engineer_Junior,0.06079859971662992,Data_Analyst_Junior,0.04438532656811539
+50,Dapatkah Anda menjelaskan apa itu hyperparameter tuning dan metode yang umum digunakan?,ML_Engineer_Junior,0.07333738027336024,Data_Analyst_Junior,0.011674306162853934
+51,Bagaimana Anda mendesain arsitektur sistem untuk model machine learning yang skalabel dan dapat diandalkan di lingkungan produksi?,ML_Engineer_Senior,0.10993027473194816,ML_Engineer_Junior,0.05614237679676101
+52,Ceritakan tentang pengalaman Anda dalam memilih algoritma model yang tepat. Apa faktor utama yang Anda pertimbangkan?,ML_Engineer_Junior,0.036378752544270095,ML_Engineer_Senior,0.030630175672392543
+53,Bagaimana Anda menangani feature engineering dalam projek machine learning yang kompleks?,ML_Engineer_Junior,0.09300793532323215,ML_Engineer_Senior,0.05071645462170975
+54,Apa strategi Anda dalam mengatasi masalah overfitting pada model machine learning?,ML_Engineer_Junior,0.0881738999260807,ML_Engineer_Senior,0.061093501768080746
+55,Dapatkah Anda menjelaskan pendekatan untuk evaluasi model yang komprehensif?,ML_Engineer_Junior,0.07276796737271973,ML_Engineer_Senior,0.04955876012424748
+56,"Ceritakan tentang pengalaman Anda dalam kolaborasi lintas tim, terutama dalam pengembangan model dan integrasi produk.",ML_Engineer_Senior,0.04778836264267012,Data_Engineer_Junior,0.029378035983011162
+57,Bagaimana Anda memastikan keberlanjutan model machine learning di produksi?,ML_Engineer_Senior,0.08391806967329211,ML_Engineer_Junior,0.08183745174343271
+58,Apa yang Anda lakukan jika menemukan bias dalam model machine learning Anda?,ML_Engineer_Junior,0.06798898485107659,ML_Engineer_Senior,0.05779336794793882
+59,Jelaskan bagaimana Anda menangani siklus hidup model dari develop hingga deployment ke produksi.,ML_Engineer_Senior,0.07092193363256284,ML_Engineer_Junior,0.024856018941262808
+60,Bagaimana Anda melakukan komunikasi hasil model kepada pemangku kepentingan non-teknis?,ML_Engineer_Senior,0.036254621640190415,ML_Engineer_Junior,0.02771283471558081
