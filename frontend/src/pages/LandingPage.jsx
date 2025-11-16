@@ -5,6 +5,7 @@ import DescriptionInput from "../components/DescriptionInput.jsx";
 import InterviewPage from "./InterviewPage.jsx";
 
 function LandingPage() {
+
   const [role, setRole] = useState("Data_Analyst");
   const [level, setLevel] = useState("Junior");
   const [description, setDescription] = useState("");
@@ -15,10 +16,12 @@ function LandingPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [answers, setAnswers] = useState({});
+  const [isInterviewDone, setIsInterviewDone] = useState(false);
 
-  // ------------------------------------------------
+
+  // ------------------------------------------
   // MULAI INTERVIEW
-  // ------------------------------------------------
+  // ------------------------------------------
   const handleStartInterview = async () => {
     setError("");
 
@@ -38,7 +41,7 @@ function LandingPage() {
 
     try {
       setLoading(true);
-      console.log("[DEBUG] Payload yang dikirim:", payload);
+      setIsInterviewDone(false);  // reset hasil lama
 
       const res = await fetch("http://localhost:5001/api/questions", {
         method: "POST",
@@ -51,14 +54,11 @@ function LandingPage() {
         try {
           const dataErr = await res.json();
           if (dataErr.error) msg = dataErr.error;
-        } catch {
-          /* ignore */
-        }
+        } catch {}
         throw new Error(msg);
       }
 
       const data = await res.json();
-      console.log("[DEBUG] Data sukses:", data);
 
       const qs = data.questions || [];
       setQuestions(qs);
@@ -69,16 +69,16 @@ function LandingPage() {
         setIsModalOpen(true);
       }
     } catch (err) {
-      console.error("[DEBUG] Error di handleStartInterview:", err);
       setError(err.message || "Gagal mengambil pertanyaan");
     } finally {
       setLoading(false);
     }
   };
 
-  // ------------------------------------------------
+
+  // ------------------------------------------
   // JAWABAN & NEXT
-  // ------------------------------------------------
+  // ------------------------------------------
   const handleAnswerChange = (value) => {
     setAnswers((prev) => ({
       ...prev,
@@ -91,7 +91,7 @@ function LandingPage() {
       setCurrentIndex((idx) => idx + 1);
     } else {
       setIsModalOpen(false);
-      console.log("[DEBUG] Semua jawaban:", answers);
+      setIsInterviewDone(true);   // <-- INTERVIEW SELESAI
     }
   };
 
@@ -99,12 +99,14 @@ function LandingPage() {
     setIsModalOpen(false);
   };
 
+
   const currentQuestion =
     questions.length > 0 ? questions[currentIndex] : null;
 
+
   return (
     <>
-      {/* HEADER TENGAH */}
+      {/* HEADER */}
       <div className="app-header">
         <div className="app-title-block">
           <div className="app-badge">
@@ -119,16 +121,16 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* LAYOUT UTAMA: FORM (KIRI) + STATUS (KANAN) */}
+      {/* MAIN LAYOUT */}
       <div className="main-layout">
-        {/* FORM CARD */}
+
+        {/* FORM */}
         <div className="card">
           <div className="card-header">
             <div>
               <div className="card-title">Konfigurasi sesi</div>
               <div className="card-subtitle">
-                Junior akan mendapat 3 pertanyaan, Senior mendapat 5
-                pertanyaan.
+                Junior akan mendapat 3 pertanyaan, Senior mendapat 5 pertanyaan.
               </div>
             </div>
           </div>
@@ -149,19 +151,23 @@ function LandingPage() {
           </button>
         </div>
 
-        {/* PANEL STATUS */}
+        {/* STATUS PANEL */}
         <InterviewPage
           questions={questions}
           role={role}
           level={level}
           currentIndex={currentIndex}
+          answers={answers}         // <-- kirim jawaban
+          isInterviewDone={isInterviewDone} // <-- kirim status selesai
         />
       </div>
+
 
       {/* MODAL JAWABAN */}
       {isModalOpen && currentQuestion && (
         <div className="modal-backdrop">
           <div className="modal-card">
+
             <div className="modal-header">
               <div className="modal-title">Pertanyaan interview</div>
               <div className="modal-progress">
@@ -189,9 +195,11 @@ function LandingPage() {
                 {currentIndex < questions.length - 1 ? "Next" : "Selesai"}
               </button>
             </div>
+
           </div>
         </div>
       )}
+
     </>
   );
 }

@@ -4,9 +4,9 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
-# ---------------------------------------------------------
+
 # PREPROCESSING SEDERHANA
-# ---------------------------------------------------------
+
 def clean_text(text: str) -> str:
     if text is None:
         return ""
@@ -16,10 +16,10 @@ def clean_text(text: str) -> str:
     s = re.sub(r"\s+", " ", s).strip()                # rapikan spasi
     return s
 
-# ---------------------------------------------------------
+
 # SEED DESKRIPSI (ROLE x LEVEL)
 # Boleh kamu tambah kata2 Indonesia kalau mau makin relevan
-# ---------------------------------------------------------
+
 SEEDS = {
     # -------------------------------------------------
     # DATA ANALYST – JUNIOR
@@ -37,7 +37,7 @@ SEEDS = {
 
     # -------------------------------------------------
     # DATA ANALYST – SENIOR
-    # -------------------------------------------------
+    
     "Data_Analyst_Senior": """
         business metrics, metrik bisnis, kpi, key performance indicator,
         a b testing, eksperimen, uji hipotesis, hypothesis testing, p value,
@@ -51,9 +51,9 @@ SEEDS = {
         merancang dashboard, memvalidasi kualitas data, data governance
     """,
 
-    # -------------------------------------------------
+    
     # DATA ENGINEER – JUNIOR
-    # -------------------------------------------------
+    
     "Data_Engineer_Junior": """
         etl, extract transform load, pipeline data, data pipeline,
         ingest data, integrasi data, integrasi sumber data,
@@ -67,9 +67,9 @@ SEEDS = {
         meng schedule job, cron sederhana, workflow dasar
     """,
 
-    # -------------------------------------------------
+    
     # DATA ENGINEER – SENIOR
-    # -------------------------------------------------
+    
     "Data_Engineer_Senior": """
         distributed systems, sistem terdistribusi, big data,
         spark, hadoop, hive, flink,
@@ -85,9 +85,9 @@ SEEDS = {
         best practice, standardisasi pipeline, code review untuk pipeline
     """,
 
-    # -------------------------------------------------
+    
     # ML ENGINEER – JUNIOR
-    # -------------------------------------------------
+    
     "ML_Engineer_Junior": """
         machine learning, pembelajaran mesin,
         supervised learning, unsupervised learning,
@@ -102,9 +102,9 @@ SEEDS = {
         eksperimen model kecil, menyimpan model, pickle, joblib
     """,
 
-    # -------------------------------------------------
+    
     # ML ENGINEER – SENIOR
-    # -------------------------------------------------
+    
     "ML_Engineer_Senior": """
         mlops, produksi model, production machine learning,
         deployment model, rest api, batch inference, online inference,
@@ -121,9 +121,9 @@ SEEDS = {
     """,
 }
 
-# ---------------------------------------------------------
+
 # LOAD CSV RAW  (DISAMAKAN DENGAN FILE-MU)
-# ---------------------------------------------------------
+
 def load_raw_csv(path: str) -> pd.DataFrame:
     print(">> Cek file:", path)
     if not os.path.exists(path):
@@ -151,27 +151,32 @@ def load_raw_csv(path: str) -> pd.DataFrame:
     return df
 
 
-# ---------------------------------------------------------
+
 # FUNGSI UTAMA PSEUDO-LABEL
-# ---------------------------------------------------------
+
+# 1) TF-IDF vectorization untuk teks pertanyaan + seed
+# 2) Hitung cosine similarity terhadap setiap seed
+# 3) Ambil label dengan skor similarity tertinggi sebagai pseudo_label
+
 def pseudo_label(df: pd.DataFrame) -> pd.DataFrame:
     questions = df["question"].tolist()
 
     # Gabungkan semua pertanyaan + seed
+    # Tujuannya agar TF-IDF dibentuk di "kosakata" yang sama.
     all_texts = questions + list(SEEDS.values())
 
-    # Vectorizer
+     # ---------- TEXT MINING: TF-IDF ----------
     vec = TfidfVectorizer(
-        preprocessor=clean_text,
-        ngram_range=(1, 2),
+        preprocessor=clean_text, # pakai fungsi cleaning di atas
+        ngram_range=(1, 2),      # unigram + bigram
         max_features=30000,
     )
     X_all = vec.fit_transform(all_texts)
 
-    # Vektor pertanyaan
+    # Vektor pertanyaan ada di bagian awal
     Xq = X_all[:len(df)]
 
-    # Vektor seed
+    # Vektor seed dihitung dengan vectorizer yang sama
     seed_vecs = {label: vec.transform([seed]) for label, seed in SEEDS.items()}
 
     labels = []
@@ -179,13 +184,21 @@ def pseudo_label(df: pd.DataFrame) -> pd.DataFrame:
     second_labels = []
     second_scores = []
 
+    # TEXT MINING: COSINE SIMILARITY 
+    # Untuk setiap pertanyaan, hitung kemiripan (cosine similarity)
+    # ke masing-masing seed, lalu pilih label dengan skor tertinggi.
     for i in range(Xq.shape[0]):
         sims = {
             label: float(linear_kernel(seed_vecs[label], Xq[i])[0, 0])
             for label in SEEDS
         }
+        # Sorting skor tertinggi → (label, skor)
         sorted_sims = sorted(sims.items(), key=lambda x: x[1], reverse=True)
+
+        # Label terbaik = kandidat pseudo_label
         best_lbl, best_score = sorted_sims[0]
+
+        # Label kedua (opsional, berguna untuk analisis manual)
         snd_lbl, snd_score = sorted_sims[1]
 
         labels.append(best_lbl)
@@ -193,15 +206,17 @@ def pseudo_label(df: pd.DataFrame) -> pd.DataFrame:
         second_labels.append(snd_lbl)
         second_scores.append(snd_score)
 
+    # Tambahkan kolom hasil pseudo-labeling ke dataframe
+
     df["pseudo_label"] = labels
     df["pseudo_score"] = scores
     df["second_label"] = second_labels
     df["second_score"] = second_scores
     return df
 
-# ---------------------------------------------------------
+
 # MAIN EKSEKUSI SCRIPT
-# ---------------------------------------------------------
+
 if __name__ == "__main__":
     BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # .../ai_mock_project
     RAW_PATH = os.path.join(BASE_DIR, "backend", "data", "questions_raw.csv")

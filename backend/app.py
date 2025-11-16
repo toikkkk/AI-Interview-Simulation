@@ -17,9 +17,9 @@ except Exception as e:
     QUESTIONS_DF = pd.DataFrame(columns=["id", "question", "pseudo_label"])
 
 
-# ============================
+
 # ROUTE: HEALTH
-# ============================
+
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify(
@@ -30,9 +30,9 @@ def health():
     )
 
 
-# ============================
+
 # ROUTE: AMBIL PERTANYAAN
-# ============================
+
 # HANYA 1 ENDPOINT: /api/questions
 @app.route("/api/questions", methods=["POST", "OPTIONS"])
 def api_questions():
