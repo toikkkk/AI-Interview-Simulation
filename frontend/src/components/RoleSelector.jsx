@@ -1,19 +1,28 @@
 import React from "react";
 
+const ROLE_OPTIONS = [
+  { value: "Data_Analyst", label: "Data Analyst" },
+  { value: "Data_Engineer", label: "Data Engineer" },
+  { value: "ML_Engineer", label: "ML Engineer" },
+];
+
 function RoleSelector({ value, onChange }) {
   return (
-    <div style={{ marginBottom: "12px" }}>
-      <label style={{ fontWeight: "bold", display: "block", marginBottom: 4 }}>
-        Pilih Role
-      </label>
+    <div className="field-group">
+      <label className="field-label">Pilih role</label>
+      <p className="field-hint">
+        Role ini akan memengaruhi fokus pertanyaan teknis dan studi kasus.
+      </p>
       <select
+        className="select-input"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        style={{ padding: "8px", minWidth: "240px" }}
       >
-        <option value="Data_Analyst">Data Analyst</option>
-        <option value="Data_Engineer">Data Engineer</option>
-        <option value="ML_Engineer">Machine Learning Engineer</option>
+        {ROLE_OPTIONS.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
       </select>
     </div>
   );
