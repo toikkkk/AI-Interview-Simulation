@@ -32,16 +32,17 @@ function LandingPage() {
       console.log("[DEBUG] Payload yang dikirim:", payload);
 
       // Panggil backend Flask
-      const res = await fetch("http://localhost:5000/questions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          role,
-          level,
-          description,
-           n: 10,
-          }),
-        });
+      const res = await fetch("http://localhost:5001/api/questions", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    role,
+    level,
+    description,
+    n: 10,
+  }),
+});
+
 
 
       const contentType = res.headers.get("content-type") || "";

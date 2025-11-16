@@ -5,25 +5,10 @@ import pandas as pd
 from config import DATA_PATH
 from ml.retrieval import get_ranked_questions
 
-# -------------------------------------------------
-# INISIALISASI APLIKASI
-# -------------------------------------------------
 app = Flask(__name__)
 
-# CORS: izinkan akses dari frontend (localhost:5173)
-# Untuk dev, paling aman pakai CORS(app) saja
-CORS(app)  # kalau mau lebih strict: CORS(app, origins=["http://localhost:5173"])
+CORS(app)
 
-
-def add_cors_headers(response):
-    response.headers["Access-Control-Allow-Origin"] = "http://localhost:5173"
-    response.headers["Access-Control-Allow-Credentials"] = "true"
-    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
-    return response
-# -------------------------------------------------
-# LOAD DATASET SEKALI SAAT START
-# -------------------------------------------------
 try:
     QUESTIONS_DF = pd.read_csv(DATA_PATH)
     print(f"[INFO] Loaded questions from {DATA_PATH}, rows = {len(QUESTIONS_DF)}")
@@ -32,9 +17,9 @@ except Exception as e:
     QUESTIONS_DF = pd.DataFrame(columns=["id", "question", "pseudo_label"])
 
 
-# -------------------------------------------------
-# ROUTE: CEK SERVER
-# -------------------------------------------------
+# ============================
+# ROUTE: HEALTH
+# ============================
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify(
@@ -45,24 +30,17 @@ def health():
     )
 
 
-# -------------------------------------------------
+# ============================
 # ROUTE: AMBIL PERTANYAAN
-# -------------------------------------------------
-# Bisa dipanggil lewat:
-#   POST http://localhost:5000/questions
-#   POST http://localhost:5000/api/questions
-@app.route("/questions", methods=["POST"])
-@app.route("/api/questions", methods=["POST"])
-def questions():
-    """
-    Body JSON yang diharapkan:
-    {
-      "role": "Data_Analyst" | "Data_Engineer" | "ML_Engineer",
-      "level": "Junior" | "Senior",
-      "description": "teks deskripsi pengalaman",
-      "n": 10
-    }
-    """
+# ============================
+# HANYA 1 ENDPOINT: /api/questions
+@app.route("/api/questions", methods=["POST", "OPTIONS"])
+def api_questions():
+    # handle preflight OPTIONS dulu
+    if request.method == "OPTIONS":
+        # response kosong tapi lewat @after_request tetap kena header CORS
+        return ("", 204)
+
     data = request.get_json(force=True) or {}
     role = data.get("role")
     level = data.get("level")
@@ -70,13 +48,9 @@ def questions():
     n = int(data.get("n", 10))
 
     if not role or not level or not description:
-        return (
-            jsonify({"error": "role, level, dan description wajib diisi."}),
-            400,
-        )
+        return jsonify({"error": "role, level, dan description wajib diisi."}), 400
 
     try:
-        # panggil fungsi retrieval (TF-IDF + cosine similarity)
         result_df = get_ranked_questions(
             QUESTIONS_DF,
             role=role,
@@ -85,12 +59,8 @@ def questions():
             n=n,
         )
     except Exception as e:
-        # kalau ada error di sisi ML, jangan bikin frontend bingung
         print("[ERROR] get_ranked_questions gagal:", e)
-        return (
-            jsonify({"error": "Gagal memproses pertanyaan di server."}),
-            500,
-        )
+        return jsonify({"error": "Gagal memproses pertanyaan di server."}), 500
 
     questions = []
     for _, row in result_df.iterrows():
@@ -112,9 +82,6 @@ def questions():
     )
 
 
-# -------------------------------------------------
-# MAIN
-# -------------------------------------------------
 if __name__ == "__main__":
-    print("[INFO] URL map:", app.url_map)  # debug: lihat route apa saja yang terdaftar
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    print("[INFO] URL map:", app.url_map)
+    app.run(host="0.0.0.0", port=5001, debug=True)  # <-- GANTI JADI 5001
