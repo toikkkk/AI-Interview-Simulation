@@ -109,7 +109,7 @@ function LandingPage() {
         <div className="app-title-block">
           <div className="app-badge">
             <span className="app-badge-dot" />
-            <span>Minimal AI mock interview</span>
+            <span>KELOMPOK I</span>
           </div>
           <h1>AI Mock Interview</h1>
           <p>
