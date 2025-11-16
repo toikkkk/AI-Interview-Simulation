@@ -6,9 +6,9 @@ from config import DATA_PATH
 from ml.retrieval import get_ranked_questions
 
 app = Flask(__name__)
+CORS(app)                                    # izinkan akses dari frontend
 
-CORS(app)
-
+# load dataset pertanyaan hasil pseudo-labeling
 try:
     QUESTIONS_DF = pd.read_csv(DATA_PATH)
     print(f"[INFO] Loaded questions from {DATA_PATH}, rows = {len(QUESTIONS_DF)}")
@@ -17,9 +17,7 @@ except Exception as e:
     QUESTIONS_DF = pd.DataFrame(columns=["id", "question", "pseudo_label"])
 
 
-
-# ROUTE: HEALTH
-
+# health check endpoint
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify(
@@ -30,26 +28,25 @@ def health():
     )
 
 
-
-# ROUTE: AMBIL PERTANYAAN
-
-# HANYA 1 ENDPOINT: /api/questions
+# endpoint utama untuk memberikan pertanyaan
 @app.route("/api/questions", methods=["POST", "OPTIONS"])
 def api_questions():
-    # handle preflight OPTIONS dulu
-    if request.method == "OPTIONS":
-        # response kosong tapi lewat @after_request tetap kena header CORS
+
+    if request.method == "OPTIONS":          # handle preflight (CORS)
         return ("", 204)
 
     data = request.get_json(force=True) or {}
+
     role = data.get("role")
     level = data.get("level")
     description = data.get("description", "")
     n = int(data.get("n", 10))
 
+    # validasi input
     if not role or not level or not description:
         return jsonify({"error": "role, level, dan description wajib diisi."}), 400
 
+    # panggil text mining retrieval
     try:
         result_df = get_ranked_questions(
             QUESTIONS_DF,
@@ -62,6 +59,7 @@ def api_questions():
         print("[ERROR] get_ranked_questions gagal:", e)
         return jsonify({"error": "Gagal memproses pertanyaan di server."}), 500
 
+    # konversi dataframe → json
     questions = []
     for _, row in result_df.iterrows():
         q = {
@@ -80,8 +78,72 @@ def api_questions():
             "questions": questions,
         }
     )
+@app.route("/api/textmining/analysis", methods=["POST"])
+def textmining_analysis():
+    from ml.preprocessing import clean_text
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.metrics.pairwise import linear_kernel
+    import numpy as np
+
+    data = request.get_json(force=True)
+
+    role = data.get("role")
+    level = data.get("level")
+    description = data.get("description", "")
+
+    if QUESTIONS_DF.empty:
+        return jsonify({"error": "Dataset kosong"}), 500
+
+    # ambil semua pertanyaan sesuai role-level → atau fallback
+    from ml.retrieval import build_label
+    label = build_label(role, level)
+
+    df = QUESTIONS_DF.copy()
+    subset = df[df["pseudo_label"].str.lower() == label.lower()]
+    if subset.empty:
+        subset = df.copy()
+
+    subset = subset.reset_index(drop=True)
+
+    # ambil hanya 7 teratas
+    top_n = 7
+
+    # TF-IDF
+    vec = TfidfVectorizer(preprocessor=clean_text, ngram_range=(1, 2))
+    X = vec.fit_transform(subset["question"])
+    qv = vec.transform([description])
+
+    sims = linear_kernel(qv, X).ravel()
+    order = sims.argsort()[::-1][:top_n]
+
+    top_questions = []
+    for idx in order:
+        top_questions.append({
+            "question": subset.loc[idx, "question"],
+            "score": float(sims[idx])
+        })
+
+    # n-gram extraction
+    feature_names = vec.get_feature_names_out()
+    top_indices = np.argsort(qv.toarray()[0])[::-1][:15]
+    user_keywords = [feature_names[i] for i in top_indices]
+
+    # buat word weight untuk wordcloud
+    wc = [{"word": feature_names[i], "weight": float(qv.toarray()[0][i])}
+          for i in top_indices]
+
+    # similarity matrix top-7
+    Xm = X[order]
+    matrix = linear_kernel(Xm, Xm).tolist()
+
+    return jsonify({
+        "top_questions": top_questions,
+        "user_keywords": user_keywords,
+        "wordcloud": wc,
+        "similarity_matrix": matrix
+    })
 
 
 if __name__ == "__main__":
     print("[INFO] URL map:", app.url_map)
-    app.run(host="0.0.0.0", port=5001, debug=True)  # <-- GANTI JADI 5001
+    app.run(host="0.0.0.0", port=5001, debug=True)  # server backend berjalan di port 5001

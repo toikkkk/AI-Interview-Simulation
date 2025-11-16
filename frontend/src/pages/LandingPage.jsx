@@ -9,189 +9,144 @@ function LandingPage() {
   const [role, setRole] = useState("Data_Analyst");
   const [level, setLevel] = useState("Junior");
   const [description, setDescription] = useState("");
-  const [questions, setQuestions] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState({});
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInterviewDone, setIsInterviewDone] = useState(false);
 
+  const [finalAnalysisData, setFinalAnalysisData] = useState(null);
+  const [isFinalAnalysisOpen, setIsFinalAnalysisOpen] = useState(false);
 
-  // ------------------------------------------
-  // MULAI INTERVIEW
-  // ------------------------------------------
+  const [loading, setLoading] = useState(false);
+
+  // ====== Fetch Analisis Text Mining Akhir ======
+  const fetchFinalTextMiningAnalysis = async () => {
+    const payload = { role, level, description };
+
+    const res = await fetch("http://localhost:5001/api/textmining/analysis", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+    setFinalAnalysisData(data);
+  };
+
+  // ====== Mulai Interview ======
   const handleStartInterview = async () => {
-    setError("");
-
-    if (!description.trim()) {
-      setError("Deskripsi pengalaman tidak boleh kosong.");
-      return;
-    }
+    if (!description.trim()) return;
 
     const questionCount = level === "Junior" ? 3 : 5;
 
-    const payload = {
-      role,
-      level,
-      description,
-      n: questionCount,
-    };
+    const payload = { role, level, description, n: questionCount };
 
-    try {
-      setLoading(true);
-      setIsInterviewDone(false);  // reset hasil lama
+    setLoading(true);
 
-      const res = await fetch("http://localhost:5001/api/questions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+    const res = await fetch("http://localhost:5001/api/questions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
 
-      if (!res.ok) {
-        let msg = `HTTP ${res.status}`;
-        try {
-          const dataErr = await res.json();
-          if (dataErr.error) msg = dataErr.error;
-        } catch {}
-        throw new Error(msg);
-      }
+    const data = await res.json();
 
-      const data = await res.json();
+    setQuestions(data.questions || []);
+    setCurrentIndex(0);
+    setAnswers({});
+    setIsInterviewDone(false);
+    setIsFinalAnalysisOpen(false);
 
-      const qs = data.questions || [];
-      setQuestions(qs);
-      setCurrentIndex(0);
-      setAnswers({});
-
-      if (qs.length > 0) {
-        setIsModalOpen(true);
-      }
-    } catch (err) {
-      setError(err.message || "Gagal mengambil pertanyaan");
-    } finally {
-      setLoading(false);
+    if (data.questions.length > 0) {
+      setIsModalOpen(true);
     }
+
+    setLoading(false);
   };
 
-
-  // ------------------------------------------
-  // JAWABAN & NEXT
-  // ------------------------------------------
-  const handleAnswerChange = (value) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [currentIndex]: value,
-    }));
-  };
-
+  // ====== Next Pertanyaan ======
   const handleNextQuestion = () => {
     if (currentIndex < questions.length - 1) {
-      setCurrentIndex((idx) => idx + 1);
+      setCurrentIndex(i => i + 1);
     } else {
       setIsModalOpen(false);
-      setIsInterviewDone(true);   // <-- INTERVIEW SELESAI
+      setIsInterviewDone(true);
+      fetchFinalTextMiningAnalysis();
     }
   };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
-
-  const currentQuestion =
-    questions.length > 0 ? questions[currentIndex] : null;
-
 
   return (
     <>
-      {/* HEADER */}
       <div className="app-header">
         <div className="app-title-block">
-          <div className="app-badge">
-            <span className="app-badge-dot" />
-            <span>KELOMPOK I</span>
-          </div>
+          <div className="app-badge">KELOMPOK I</div>
           <h1>AI Mock Interview</h1>
-          <p>
-            Pilih role dan level, lalu tuliskan deskripsi pengalamanmu.
-            Pertanyaan akan disesuaikan dengan profil yang kamu isi.
-          </p>
+          <p>Isi deskripsi pengalamanmu, lalu sistem akan membuatkan pertanyaan interview.</p>
         </div>
       </div>
 
-      {/* MAIN LAYOUT */}
       <div className="main-layout">
 
         {/* FORM */}
         <div className="card">
-          <div className="card-header">
-            <div>
-              <div className="card-title">Konfigurasi sesi</div>
-              <div className="card-subtitle">
-                Junior akan mendapat 3 pertanyaan, Senior mendapat 5 pertanyaan.
-              </div>
-            </div>
-          </div>
+          <div className="card-title">Konfigurasi Interview</div>
 
           <RoleSelector value={role} onChange={setRole} />
           <LevelSelector value={level} onChange={setLevel} />
           <DescriptionInput value={description} onChange={setDescription} />
 
-          {error && <p className="error-text">Error: {error}</p>}
-
           <button
+            className="primary-btn"
             onClick={handleStartInterview}
             disabled={loading}
-            className="primary-btn"
           >
             {loading ? "Mengambil pertanyaan..." : "Mulai Interview"}
-            {!loading && <span>→</span>}
           </button>
         </div>
 
-        {/* STATUS PANEL */}
+        {/* PANEL STATUS */}
         <InterviewPage
           questions={questions}
           role={role}
           level={level}
           currentIndex={currentIndex}
-          answers={answers}         // <-- kirim jawaban
-          isInterviewDone={isInterviewDone} // <-- kirim status selesai
+          answers={answers}
+          isInterviewDone={isInterviewDone}
+          finalAnalysisData={finalAnalysisData}
+          isFinalAnalysisOpen={isFinalAnalysisOpen}
+          onOpenFinalAnalysis={() => setIsFinalAnalysisOpen(true)}
+          onCloseFinalAnalysis={() => setIsFinalAnalysisOpen(false)}
         />
       </div>
 
-
-      {/* MODAL JAWABAN */}
-      {isModalOpen && currentQuestion && (
+      {/* POPUP JAWAB PERTANYAAN */}
+      {isModalOpen && questions[currentIndex] && (
         <div className="modal-backdrop">
           <div className="modal-card">
 
             <div className="modal-header">
-              <div className="modal-title">Pertanyaan interview</div>
+              <div className="modal-title">Pertanyaan</div>
               <div className="modal-progress">
-                {currentIndex + 1} / {questions.length} pertanyaan
+                {currentIndex + 1}/{questions.length}
               </div>
             </div>
 
-            <p className="modal-question">{currentQuestion.question}</p>
+            <p className="modal-question">{questions[currentIndex].question}</p>
 
             <textarea
               className="modal-answer"
-              placeholder="Tulis jawabanmu di sini..."
               value={answers[currentIndex] || ""}
-              onChange={(e) => handleAnswerChange(e.target.value)}
+              onChange={(e) =>
+                setAnswers(prev => ({ ...prev, [currentIndex]: e.target.value }))
+              }
+              placeholder="Tulis jawabanmu..."
             />
 
             <div className="modal-actions">
-              <button className="modal-btn" onClick={handleCloseModal}>
-                Tutup
-              </button>
-              <button
-                className="modal-btn primary"
-                onClick={handleNextQuestion}
-              >
+              <button className="modal-btn primary" onClick={handleNextQuestion}>
                 {currentIndex < questions.length - 1 ? "Next" : "Selesai"}
               </button>
             </div>

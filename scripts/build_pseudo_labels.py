@@ -21,9 +21,9 @@ def clean_text(text: str) -> str:
 # Boleh kamu tambah kata2 Indonesia kalau mau makin relevan
 
 SEEDS = {
-    # -------------------------------------------------
+    
     # DATA ANALYST – JUNIOR
-    # -------------------------------------------------
+    
     "Data_Analyst_Junior": """
         analisis data, analisis deskriptif, statistik deskriptif, rata rata, mean, median, modus,
         eksplorasi data, eksploratory data analysis, eda, membersihkan data, data cleaning,
@@ -35,7 +35,7 @@ SEEDS = {
         query sederhana, filter data, agregasi data
     """,
 
-    # -------------------------------------------------
+    
     # DATA ANALYST – SENIOR
     
     "Data_Analyst_Senior": """
@@ -121,93 +121,72 @@ SEEDS = {
     """,
 }
 
-
-# LOAD CSV RAW  (DISAMAKAN DENGAN FILE-MU)
-
+# Load raw CSV berisi pertanyaan mentah
 def load_raw_csv(path: str) -> pd.DataFrame:
     print(">> Cek file:", path)
     if not os.path.exists(path):
         raise FileNotFoundError(f"File tidak ditemukan: {path}")
-    print("   - size:", os.path.getsize(path), "bytes")
 
     questions = []
     with open(path, "r", encoding="utf-8-sig", errors="ignore") as f:
         lines = [line.strip() for line in f if line.strip()]
 
-    # kalau baris pertama adalah header (mis. 'Pertanyaan'), lewati
+    # cek dan lewati header
     if lines and "pertanyaan" in lines[0].lower():
         lines = lines[1:]
 
     for line in lines:
-        # buang koma di ujung kalau ada
-        q = line.rstrip(",").strip()
+        q = line.rstrip(",").strip()              # buang koma berlebih
         if q:
             questions.append(q)
 
+    # bikin dataframe raw
     df = pd.DataFrame({"question": questions})
     df.insert(0, "id", df.index + 1)
-
-    print("   - jumlah baris:", len(df))
     return df
 
 
-
-# FUNGSI UTAMA PSEUDO-LABEL
-
-# 1) TF-IDF vectorization untuk teks pertanyaan + seed
-# 2) Hitung cosine similarity terhadap setiap seed
-# 3) Ambil label dengan skor similarity tertinggi sebagai pseudo_label
-
+# PROSES UTAMA PSEUDO-LABELING
 def pseudo_label(df: pd.DataFrame) -> pd.DataFrame:
     questions = df["question"].tolist()
 
-    # Gabungkan semua pertanyaan + seed
-    # Tujuannya agar TF-IDF dibentuk di "kosakata" yang sama.
+    # gabungkan pertanyaan + seed (supaya vektor TF-IDF seragam)
     all_texts = questions + list(SEEDS.values())
 
-     # ---------- TEXT MINING: TF-IDF ----------
+    # ---------- TF-IDF ----------
     vec = TfidfVectorizer(
-        preprocessor=clean_text, # pakai fungsi cleaning di atas
-        ngram_range=(1, 2),      # unigram + bigram
-        max_features=30000,
+        preprocessor=clean_text,     # gunakan teks yang sudah dibersihkan
+        ngram_range=(1, 2),          # unigram + bigram
+        max_features=30000
     )
-    X_all = vec.fit_transform(all_texts)
+    X_all = vec.fit_transform(all_texts)          # fit TF-IDF untuk semua teks
 
-    # Vektor pertanyaan ada di bagian awal
-    Xq = X_all[:len(df)]
-
-    # Vektor seed dihitung dengan vectorizer yang sama
-    seed_vecs = {label: vec.transform([seed]) for label, seed in SEEDS.items()}
+    Xq = X_all[:len(df)]                          # vektor pertanyaan
+    seed_vecs = {label: vec.transform([seed])     # vektor tiap seed
+                  for label, seed in SEEDS.items()}
 
     labels = []
     scores = []
     second_labels = []
     second_scores = []
 
-    # TEXT MINING: COSINE SIMILARITY 
-    # Untuk setiap pertanyaan, hitung kemiripan (cosine similarity)
-    # ke masing-masing seed, lalu pilih label dengan skor tertinggi.
+    # ---------- COSINE SIMILARITY ----------
+    # pilih label dengan skor similarity tertinggi
     for i in range(Xq.shape[0]):
-        sims = {
-            label: float(linear_kernel(seed_vecs[label], Xq[i])[0, 0])
-            for label in SEEDS
-        }
-        # Sorting skor tertinggi → (label, skor)
+        sims = {label: float(linear_kernel(seed_vecs[label], Xq[i])[0, 0])
+                for label in SEEDS}
+
         sorted_sims = sorted(sims.items(), key=lambda x: x[1], reverse=True)
 
-        # Label terbaik = kandidat pseudo_label
-        best_lbl, best_score = sorted_sims[0]
-
-        # Label kedua (opsional, berguna untuk analisis manual)
-        snd_lbl, snd_score = sorted_sims[1]
+        best_lbl, best_score = sorted_sims[0]     # label paling mirip
+        snd_lbl, snd_score = sorted_sims[1]       # label kedua
 
         labels.append(best_lbl)
         scores.append(best_score)
         second_labels.append(snd_lbl)
         second_scores.append(snd_score)
 
-    # Tambahkan kolom hasil pseudo-labeling ke dataframe
-
+    # tambahkan hasil ke dataframe
     df["pseudo_label"] = labels
     df["pseudo_score"] = scores
     df["second_label"] = second_labels
@@ -215,23 +194,15 @@ def pseudo_label(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# MAIN EKSEKUSI SCRIPT
-
+# MAIN EXECUTION
 if __name__ == "__main__":
-    BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # .../ai_mock_project
+    # path input & output
+    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
     RAW_PATH = os.path.join(BASE_DIR, "backend", "data", "questions_raw.csv")
     OUT_PATH = os.path.join(BASE_DIR, "backend", "data", "questions_labeled.csv")
 
-    print("\n🔍 Membaca CSV RAW dari:", RAW_PATH)
     df_raw = load_raw_csv(RAW_PATH)
-    print("✔ Total pertanyaan:", len(df_raw))
-
-    print("\n🏷 Melakukan pseudo-labeling...")
     df_labeled = pseudo_label(df_raw)
 
-    df_labeled.to_csv(OUT_PATH, index=False)
-
-    print("\n✅ PSEUDO-LABEL BERHASIL DIBUAT!")
-    print("➡ File disimpan ke:", OUT_PATH)
-    print("\nContoh hasil:")
-    print(df_labeled.head(10))
+    df_labeled.to_csv(OUT_PATH, index=False)      # simpan hasil pseudo-labeling
+    print("Pseudo-labeling selesai!")

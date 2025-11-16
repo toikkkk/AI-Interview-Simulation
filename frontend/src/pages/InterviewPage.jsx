@@ -1,4 +1,5 @@
 import React from "react";
+import TextMiningFinalModal from "../components/TextMiningFinalModal.jsx";
 
 function prettyRole(role) {
   if (role === "Data_Analyst") return "Data Analyst";
@@ -7,75 +8,64 @@ function prettyRole(role) {
   return role;
 }
 
-function InterviewPage({ questions, role, level, currentIndex, answers, isInterviewDone }) {
-  const total = questions.length;
+function InterviewPage({
+  questions,
+  role,
+  level,
+  currentIndex,
+  answers,
+  isInterviewDone,
+  finalAnalysisData,
+  isFinalAnalysisOpen,
+  onOpenFinalAnalysis,
+  onCloseFinalAnalysis
+}) {
 
   return (
     <div className="card interview-panel">
+
       <div className="interview-header">
         <div>
-          <div className="interview-header-title">Status interview</div>
+          <div className="interview-header-title">Status Interview</div>
           <div className="card-subtitle">
-            {total === 0
-              ? "Belum ada sesi interview yang berjalan."
-              : isInterviewDone
-              ? "Interview selesai. Berikut ringkasannya."
-              : "Sedang berjalan sesi tanya-jawab berbasis profilmu."}
+            {isInterviewDone ? "Interview selesai. Berikut hasilnya." : "Belum ada interview yang berjalan."}
           </div>
         </div>
 
         <div className="interview-chip">
-          <span>{prettyRole(role)}</span>
-          <span>·</span>
-          <span>{level}</span>
-
-          {total > 0 && !isInterviewDone && (
-            <>
-              <span>·</span>
-              <span>
-                {currentIndex + 1}/{total}
-              </span>
-            </>
-          )}
+          <span>{prettyRole(role)}</span>·<span>{level}</span>
         </div>
       </div>
 
-      {/* BELUM MULAI INTERVIEW */}
-      {total === 0 && (
-        <p className="field-hint">
-          Klik <strong>Mulai Interview</strong> di panel kiri untuk memulai.
-        </p>
+      {/* TOMBOL ANALISIS */}
+      {isInterviewDone && finalAnalysisData && (
+        <button className="tm-button" onClick={onOpenFinalAnalysis}>
+          Lihat Analisis Text Mining
+        </button>
       )}
 
-      {/* INTERVIEW SEDANG BERJALAN */}
-      {total > 0 && !isInterviewDone && (
-        <p className="field-hint">
-          Pertanyaan sedang ditampilkan di popup. Kamu dapat menutup popup
-          kapan saja, lalu melanjutkan lagi dengan membuka sesi baru.
-        </p>
+      {/* DAFTAR PERTANYAAN */}
+      {isInterviewDone && (
+        <ul className="questions-list">
+          {questions.map((q, idx) => (
+            <li key={idx} className="question-item">
+              <div className="question-meta">Pertanyaan {idx + 1}</div>
+              <strong>{q.question}</strong>
+              <div style={{ marginTop: 8, fontSize: 13 }}>
+                <div style={{ color: "#6b7280" }}>Jawaban:</div>
+                <div>{answers[idx] || "(Tidak ada jawaban)"}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
       )}
 
-      {/* INTERVIEW SUDAH SELESAI — TAMPILKAN RINGKASAN */}
-      {isInterviewDone && total > 0 && (
-        <div style={{ marginTop: "12px" }}>
-          <ul className="questions-list">
-            {questions.map((q, idx) => (
-              <li key={idx} className="question-item">
-                <div className="question-meta">Pertanyaan {idx + 1}</div>
-                <div><strong>{q.question}</strong></div>
-
-                <div style={{ marginTop: 8, color: "#9ca3af" }}>
-                  <span style={{ fontSize: 13 }}>Jawaban:</span>
-                  <div style={{ marginTop: 4 }}>
-                    {answers[idx] && answers[idx].trim() !== ""
-                      ? answers[idx]
-                      : "(Tidak ada jawaban)"}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* MODAL ANALISIS FINAL */}
+      {isFinalAnalysisOpen && finalAnalysisData && (
+        <TextMiningFinalModal
+          data={finalAnalysisData}
+          onClose={onCloseFinalAnalysis}
+        />
       )}
     </div>
   );
