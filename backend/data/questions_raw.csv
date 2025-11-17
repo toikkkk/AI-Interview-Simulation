@@ -1,61 +1,90 @@
-Pertanyaan
-Apa itu data analisis dan apa tujuannya dalam bisnis?
-Bagaimana cara kamu menangani data yang hilang (missing values) dalam dataset?
-Dapatkah kamu menggambarkan langkah-langkah yang kamu lakukan saat menganalisis dataset baru?
-Apa yang dimaksud dengan outlier dan bagaimana kamu mengidentifikasinya?,
-Bagaimana cara menggunakan SQL untuk menampilkan total jumlah penjualan dari tabel `sales`?,
-Apa langkah-langkah dasar dalam visualisasi data yang efektif?,
-Apa perbedaan antara analisis deskriptif dan analisis inferensial?,
-Bagaimana kamu memastikan kualitas data yang akan dianalisis?,
-Mengapa penting untuk mengetahui jenis data (numerik, kategorikal)?,
-Bagaimana cara kamu menggunakan alat seperti Excel atau Python dalam analisis data?,
-Bagaimana kamu mendefinisikan â€œdata-driven decision-makingâ€ dan mengapa penting dalam bisnis?,
-Ceritakan pengalamanmu tentang proyek analisis data yang paling kompleks yang pernah kamu kerjakan.,
-Bagaimana kamu memastikan kualitas data dalam analisis yang kamu lakukan?,
-Apa pendekatanmu saat mempresentasikan hasil analisis kepada pemangku kepentingan non-teknis?,
-Dalam konteks alat analisis, platform atau perangkat lunak mana yang paling kamu kuasai dan mengapa?,
-Bagaimana cara kamu menangani dan menganalisis data besar (big data)?,
-Ceritakan tentang pengalamanmu menggunakan machine learning dalam analisis data.,
-Bagaimana kamu berkolaborasi dengan tim lintas fungsi, seperti tim TI atau pemasaran, dalam proyek analisis data?
-Apa tantangan terbesar yang pernah kamu hadapi dalam analisis data, dan bagaimana kamu mengatasinya?,
-Apa indikator kinerja utama (KPI) yang kamu gunakan untuk menilai keberhasilan suatu analisis data?,
-Apa yang kamu ketahui tentang ETL (Extract, Transform, Load) dan mengapa itu penting dalam pengolahan data?,
-Bagaimana cara kamu melakukan pembersihan data (data cleaning)?,
-Apa itu data warehouse dan sebutkan beberapa contoh sistem data warehouse yang umum digunakan?,
-Bagaimana cara kamu memastikan keamanan data dalam sistem yang kamu bangun?,
-Apa itu normalisasi dalam konteks basis data, dan mengapa itu diperlukan?,
-Dapatkah kamu menjelaskan perbedaan antara SQL dan NoSQL?,
-Apa pentingnya indeks dalam database dan bagaimana cara kerjanya?,
-Bagaimana kamu mengelola dan mendokumentasikan proses atau alur kerja dalam proyek yang kamu kerjakan?,
-Bisakah kamu memberi contoh bagaimana kamu menggunakan Python dalam pengolahan data?,
-Apa itu data pipeline dan sebutkan komponen utama yang terlibat dalam membangunnya?,
-Jelaskan arsitektur pipeline data yang pernah kamu desain. Bagaimana kamu mempertimbangkan skalabilitas, keandalan, dan biaya operasional?,
-Bagaimana pendekatanmu dalam mengelola data lineage dan metadata untuk auditabilitas sistem data?,
-Ceritakan tentang pengalamanmu dalam mengoptimalkan kinerja query di database besar. Apa strategi yang kamu gunakan?,
-Bagaimana kamu menangani pengelolaan skema dan migrasi data dalam sistem yang terus berubah?,
-Apa pengalamanmu dalam bekerja dengan data real-time? Sebutkan teknologi yang digunakan dan tantangan yang dihadapi.,
-Apa peranmu dalam kolaborasi lintas tim saat menyusun solusi data?,
-Bagaimana strategi kamu dalam menjaga keamanan data dalam sistem yang kamu bangun?,
-Jelaskan bagaimana kamu menangani data duplikat dalam pemrosesan ETL.,
-Apa pengalamanmu dalam menggunakan cloud services untuk data engineering? Sebutkan layanan dan bagaimana kamu memanfaatkannya.,
-Bagaimana kamu melakukan monitoring dan alerting dalam sistem data yang kompleks?,
-Apa itu machine learning, dan bagaimana cara kerjanya secara umum?,
-Apa perbedaan antara supervised learning dan unsupervised learning?,
-Apa itu overfitting dan bagaimana cara menghindarinya?,
-Sebutkan beberapa teknik preprocessing data yang umum digunakan sebelum membangun model ML.,
-Apa itu model validation, dan mengapa itu penting?,
-Dapatkah Anda menjelaskan apa itu confusion matrix dan bagaimana cara membacanya?,
-Bagaimana cara memilih algoritma machine learning yang tepat untuk suatu masalah?,
-Apa yang dimaksud dengan feature engineering dan mengapa itu penting?,
-Bagaimana Anda menangani data yang tidak seimbang (imbalanced data) dalam masalah klasifikasi?,
-Dapatkah Anda menjelaskan apa itu hyperparameter tuning dan metode yang umum digunakan?,
-Bagaimana Anda mendesain arsitektur sistem untuk model machine learning yang skalabel dan dapat diandalkan di lingkungan produksi?,
-Ceritakan tentang pengalaman Anda dalam memilih algoritma model yang tepat. Apa faktor utama yang Anda pertimbangkan?,
-Bagaimana Anda menangani feature engineering dalam projek machine learning yang kompleks?,
-Apa strategi Anda dalam mengatasi masalah overfitting pada model machine learning?,
-Dapatkah Anda menjelaskan pendekatan untuk evaluasi model yang komprehensif?,
-Ceritakan tentang pengalaman Anda dalam kolaborasi lintas tim, terutama dalam pengembangan model dan integrasi produk.,
-Bagaimana Anda memastikan keberlanjutan model machine learning di produksi?,
-Apa yang Anda lakukan jika menemukan bias dalam model machine learning Anda?,
-Jelaskan bagaimana Anda menangani siklus hidup model dari develop hingga deployment ke produksi.,
-Bagaimana Anda melakukan komunikasi hasil model kepada pemangku kepentingan non-teknis?,
+Bagaimana Anda menangani dan mempersiapkan data yang tidak lengkap untuk analisis statistik?
+Jelaskan perbedaan antara supervised dan unsupervised learning dalam konteks data science.
+Apa itu overfitting
+Deskripsikan satu teknik visualisasi data yang Anda anggap penting dan jelaskan mengapa.
+Apa yang Anda pahami tentang fitur penting dan metode untuk menentukannya dalam model?
+Bagaimana Anda mengatasi masalah multikolinearitas dalam dataset?
+Dapatkah Anda menjelaskan apa itu p-value dan fungsinya dalam analisis data?
+Sebutkan dua algoritma clustering yang umum dan berikan contoh ketika Anda akan menggunakannya.
+Apa itu model ensemble
+Dalam konteks pengolahan data
+Bagaimana Anda mengidentifikasi dan menangani outlier dalam dataset?
+Jelaskan konsep regularisasi dalam konteks model prediktif dan sebutkan jenis-jenisnya.
+Apa yang Anda ketahui tentang teknik cross-validation dan mengapa penting dalam pengembangan model?
+Bisakah Anda menjelaskan perbedaan antara bagging dan boosting dalam konteks ensemble learning?
+Bagaimana Anda menentukan ukuran sampel yang tepat untuk analisis statistik?
+Apa itu feature engineering dan mengapa itu penting dalam machine learning?
+Dapatkah Anda memberi contoh mengenai ketika Anda menggunakan teknik time series untuk analisis data?
+Apa pendapat Anda tentang pemilihan model dan metrik evaluasi dalam proyek data science?
+Bagaimana Anda melakukan interpretasi terhadap hasil model machine learning?
+Jelaskan bagaimana Anda dapat menggunakan SQL untuk mengoptimalkan pengambilan data dari database dalam analisis.
+Bagaimana cara Anda menggunakan analisis sentimen dalam proyek data science sebelumnya
+Dapatkah Anda menjelaskan metode SHAP dan bagaimana Anda menggunakannya untuk meningkatkan interpretabilitas model yang kompleks?
+Apa saja tantangan yang Anda hadapi saat mengimplementasikan model machine learning dalam produksi
+Bagaimana Anda berkontribusi dalam pengembangan pipeline data yang efisien
+Dapatkah Anda menjelaskan bagaimana Anda melakukan tuning hiperparameter untuk model machine learning dan teknik yang Anda gunakan?
+Ceritakan pengalaman Anda dalam bekerja dengan data besar (big data) dan teknologi apa yang Anda gunakan untuk menangani tantangan tersebut.
+Bagaimana Anda menjaga etika dalam penggunaan data
+Apa yang Anda ketahui tentang interpretabilitas model
+Dapatkah Anda memberikan contoh di mana Anda mengoptimalkan algoritma yang Anda gunakan untuk meningkatkan keefisienan?
+Bagaimana cara Anda melakukan validasi model dalam konteks data yang tidak seimbang
+Seperti apa proses yang Anda lakukan untuk membersihkan data yang tidak konsisten dalam dataset?
+Dapatkah Anda menjelaskan bagaimana Anda akan menggunakan A/B testing dalam proyek analisis data?
+Apa langkah pertama yang Anda ambil saat menganalisis dataset baru?
+Bagaimana Anda akan memvisualisasikan hubungan antara dua variabel kuantitatif?
+Dapatkah Anda menjelaskan teknik grund metode regresi dan ketika penggunaannya menjadi penting?
+Bagaimana Anda mengevaluasi keakuratan model prediktif saat menganalisis data?
+Apa yang Anda ketahui mengenai teknik pengelompokan menggunakan K-means dan bagaimana cara menentukan jumlah cluster yang tepat?
+Bagaimana cara Anda menggunakan pivot table dalam pengolahan data?
+Dapatkah Anda menjelaskan langkah-langkah yang Anda ambil untuk melakukan normalisasi data?
+Bagaimana cara Anda mengatasi data yang sangat tidak seimbang dalam klasifikasi?
+Bagaimana Anda menangani data yang tidak terstruktur saat melakukan analisis?
+Seperti apa langkah-langkah yang Anda ambil ketika mendeteksi kebocoran data dalam dataset?
+Bisakah Anda menjelaskan bagaimana Anda menggunakan SQL dalam analisis data?
+Apa teknik statistik lanjutan yang Anda gunakan untuk menguji hipotesis dalam dataset?
+Apa pendekatan Anda untuk melakukan A/B testing dan bagaimana Anda mengevaluasi hasilnya?
+Bagaimana Anda melakukan analisis kohort dan mengapa itu penting?
+Dapatkah Anda menjelaskan proses pembuatan dasbor interaktif untuk visualisasi data?
+Bagaimana Anda mengidentifikasi dan mengatasi adanya bias dalam analisis data Anda?
+Apa cara Anda untuk menjaga keberlanjutan dan pembaruan dalam model analitik yang anda buat?
+Bagaimana cara Anda menangani kolaborasi dengan tim lintas fungsi selama proyek analisis data?
+Apa metode statistik yang Anda pilih untuk menguji hipotesis dan mengapa?
+Bagaimana Anda mengidentifikasi dan mengatasi outlier dalam dataset Anda?
+Dapatkah Anda menjelaskan teknik regresi yang berbeda dan kapan Anda akan memilih salah satunya?
+Apa yang Anda lakukan untuk memastikan bahwa data yang Anda analisis bersifat representatif?
+Bisakah Anda menjelaskan perbedaan antara supervised dan unsupervised learning dalam konteks analisis data?
+Apa pelajaran berharga yang telah Anda ambil dari proyek analisis data yang gagal?
+Bagaimana Anda mengintegrasikan analisis data dengan strategi bisnis yang lebih besar?
+Apa pendekatan Anda untuk melakukan analisis regresi multivariat?
+Dapatkah Anda berbagi pengalaman saat menggunakan SQL untuk mengolah data besar?
+Bagaimana Anda memastikan bahwa analisis yang Anda lakukan dapat diulang dan diverifikasi oleh orang lain?
+Dapatkah Anda menjelaskan bagaimana Anda menggunakan teknik ensemble dalam machine learning dan mengapa itu efektif?
+Bagaimana cara Anda menentukan apakah model Anda overfitting atau underfitting?
+Apa yang Anda ketahui tentang regularisasi dan bagaimana pengaruhnya terhadap model machine learning?
+Dapatkah Anda menyoroti perbedaan antara cross-validation dan train-test split?
+Sebutkan dan jelaskan dua cara untuk menangani outlier dalam dataset.
+Apa itu gradient descent dan bagaimana cara kerjanya dalam model machine learning?
+Dapatkah Anda menjelaskan peran hyperparameter dan bagaimana Anda memilihnya saat melatih model?
+Apa itu confusion matrix
+Dapatkah Anda menjelaskan konsep feature scaling dan mengapa ini penting dalam pembelajaran mesin?
+Bagaimana pendekatan Anda terhadap model deployment dan pemantauan performa model di dunia nyata?
+Apa itu Regularization dalam machine learning
+Bagaimana Anda menentukan apakah sebuah model machine learning sudah cukup kompleks atau perlu disederhanakan?
+Dapatkah Anda menjelaskan teknik Cross-Validation dan manfaatnya dalam pengembangan model?
+Apa yang Anda ketahui tentang Gradient Descent dan variasi yang berbeda (misalnya
+Apa pentingnya menggunakan teknik Dimensionality Reduction
+Dapatkah Anda menjelaskan konsep Augmentasi Data dalam konteks pembelajaran mendalam
+Bagaimana Anda menangani imbalanced dataset dalam proyek machine learning?
+Apa yang Anda ketahui tentang Hyperparameter Tuning dan bagaimana Anda melakukannya?
+Dapatkah Anda menjelaskan bagaimana Anda menggunakan Feature Engineering untuk meningkatkan kinerja model?
+Apa peran dan pentingnya interpretabilitas model dalam pengembangan solusi machine learning?
+Bagaimana Anda menangani masalah imbalanced class dalam dataset dan teknik apa yang Anda gunakan untuk menyeimbangkan kelas?
+Bisakah Anda menjelaskan bagaimana model ensemble bekerja dan sebutkan beberapa keuntungannya dibandingkan model tunggal?
+Sebutkan perbedaan antara gradient descent dan dua variasi lainnya
+Apa yang Anda ketahui tentang arsitektur Transformer dan bagaimana hal itu mengubah pendekatan dalam natural language processing (NLP)?
+Dapatkah Anda menguraikan langkah-langkah dalam menyusun pipeline machine learning yang efektif?
+Bagaimana Anda melakukan hyperparameter tuning pada model machine learning dan alat apa yang Anda gunakan untuk proses ini?
+Apa tantangan utama yang Anda hadapi saat mengimplementasikan model deep learning di lingkungan produksi?
+Bagaimana Anda menjelaskan konsep transfer learning dan kapan Anda akan menggunakannya?
+Dapatkah Anda membandingkan supervised learning dan unsupervised learning
+Apa yang Anda lakukan untuk memastikan keberlanjutan model machine learning dalam jangka panjang?
