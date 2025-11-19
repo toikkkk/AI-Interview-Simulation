@@ -4,6 +4,7 @@ import pandas as pd
 
 from config import DATA_PATH
 from ml.retrieval import get_ranked_questions
+from nlp.nlp_processor import process_text
 
 app = Flask(__name__)
 CORS(app)                                    # izinkan akses dari frontend
@@ -142,6 +143,35 @@ def textmining_analysis():
         "wordcloud": wc,
         "similarity_matrix": matrix
     })
+
+
+
+@app.route("/api/nlp/analyze", methods=["POST", "OPTIONS"])
+def api_nlp_analyze():
+    """Analisis NLP lengkap (skills, tools, konsep, dan topik) dari deskripsi kandidat.
+
+    Body JSON:
+    {
+        "text": "deskripsi kandidat"
+    }
+    """
+    if request.method == "OPTIONS":
+        # Untuk preflight CORS (CORS preflight request dari browser)
+        return ("", 204)
+
+    data = request.get_json(force=True) or {}
+    text = data.get("text", "")
+
+    if not text or not text.strip():
+        return jsonify({"error": "field 'text' wajib diisi."}), 400
+
+    try:
+        result = process_text(text)
+    except Exception as e:
+        print("[ERROR] process_text gagal:", e)
+        return jsonify({"error": "Gagal memproses NLP di server."}), 500
+
+    return jsonify(result)
 
 
 if __name__ == "__main__":
