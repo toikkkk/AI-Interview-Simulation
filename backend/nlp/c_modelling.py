@@ -16,48 +16,53 @@ Kelebihan:
 from typing import List, Tuple, Dict
 
 
-TOPIC_THEMES: List[Dict] = [
+TOPIC_THEMES = [
     {
         "name": "Data Analysis & BI",
         "keywords": [
-            "excel", "tableau", "power bi", "dashboard", "data analysis",
-            "analisis data", "business intelligence", "report", "visualization",
-            "visualisasi", "metrik", "kpi"
+            "analisis", "analisis data", "data analysis", "statistik",
+            "statistical", "eda", "exploratory", "data cleaning",
+            "missing value", "cleaning", "grafik", "visualisasi",
+            "chart", "insight", "metrik", "power bi", "tableau",
+            "dashboard", "excel"
         ],
     },
     {
         "name": "Machine Learning & AI",
         "keywords": [
-            "machine learning", "deep learning", "regression", "classification",
-            "clustering", "random forest", "xgboost", "neural network",
-            "cnn", "rnn", "nlp", "model training", "model inference",
+            "machine learning", "deep learning", "supervised", "unsupervised",
+            "regression", "classification", "clustering", "model",
+            "training", "testing", "predict", "overfitting", "underfitting",
+            "dataset", "feature", "algoritma", "evaluasi", "akurasi",
+            "precision", "recall", "f1", "feature importance"
         ],
     },
     {
         "name": "Data Engineering & Pipelines",
         "keywords": [
-            "etl", "elt", "data pipeline", "airflow", "spark", "hadoop",
-            "kafka", "data warehouse", "data lake", "bigquery", "snowflake",
-            "pipeline", "ingestion", "orchestrator",
+            "etl", "elt", "data pipeline", "pipeline", "airflow",
+            "spark", "hadoop", "data warehouse", "ingestion", "datalake",
+            "bigquery", "snowflake", "orchestrator"
         ],
     },
     {
         "name": "Software Engineering",
         "keywords": [
-            "api", "microservice", "rest", "fastapi", "django", "flask",
-            "git", "docker", "kubernetes", "testing", "ci/cd",
-            "monitoring", "deployment",
+            "api", "rest", "fastapi", "flask", "django",
+            "docker", "kubernetes", "git", "testing",
+            "ci/cd", "deploy", "deployment", "microservice"
         ],
     },
     {
         "name": "Statistics & Experimentation",
         "keywords": [
-            "hypothesis testing", "ab test", "a/b test", "p-value",
-            "confidence interval", "statistical", "regresi", "anova",
-            "bayesian", "significance", "experiment",
+            "statistik", "hipotesis", "hypothesis", "uji t",
+            "p-value", "confidence", "sampling", "bayes",
+            "variance", "distribusi", "anova", "experiment"
         ],
     },
 ]
+
 
 
 def _score_themes(text: str) -> List[Tuple[str, int]]:

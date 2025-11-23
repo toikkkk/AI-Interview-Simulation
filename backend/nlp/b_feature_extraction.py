@@ -3,9 +3,77 @@ from typing import Set, Tuple
 
 # Setup Corpus Keywords (Metode 10 - Manual)
 # Ini adalah kamus kita untuk NER kustom
-SKILL_KEYWORDS = {"python", "sql", "machine learning", "data science", "sains data", "visualisasi", "pandas", "numpy", "scikit-learn", "nlp", "text mining", "deep learning", "etl", "analisis"}
-TOOL_KEYWORDS = {"tableau", "powerbi", "power bi", "airflow", "docker", "git", "github", "excel", "postgresql", "mysql", "google colab", "vscode", "dbeaver", "rstudio"}
-CONCEPT_KEYWORDS = {"churn rate", "analisis churn", "a/b testing", "data warehouse", "data lake", "deteksi anomali", "rekomendasi", "forecasting", "klaster", "clustering", "sentimen", "realtime", "analisis uang"}
+SKILL_KEYWORDS = {
+    # Basic programming & scripting
+    "python", "r", "sql", "scala", "java", "golang", "bash",
+
+    # Python DS Libraries
+    "pandas", "numpy", "matplotlib", "seaborn", "scikit-learn",
+    "statsmodels", "pyspark", "tensorflow", "keras", "pytorch",
+    "transformers", "nltk", "spacy", "sastrawi",
+
+    # Machine Learning skills
+    "machine learning", "deep learning", "nlp", "computer vision",
+    "clustering", "classification", "regression",
+    "supervised", "unsupervised", "reinforcement learning",
+    "feature engineering", "feature selection", "model evaluation",
+    "hyperparameter tuning",
+
+    # Data Analysis
+    "analisis", "analisis data", "statistik", "exploratory data analysis",
+    "eda", "data cleaning", "data wrangling",
+
+    # Cloud & MLOps / deployment
+    "mlops", "ci/cd", "containerization", "deployment",
+}
+
+TOOL_KEYWORDS = {
+    # BI Tools
+    "excel", "power bi", "tableau", "looker studio", "looker",
+
+    # Databases
+    "mysql", "postgresql", "sql server", "oracle", "bigquery",
+    "snowflake", "redshift", "mongodb", "elasticsearch",
+
+    # Data Engineer Tools
+    "airflow", "spark", "hadoop", "kafka", "dbt",
+    "databricks", "glue", "synapse", "lakehouse",
+
+    # ML Tools
+    "tensorflow", "pytorch", "keras", "sklearn", "scikitlearn",
+    "huggingface", "autogluon", "lightgbm", "xgboost", "catboost",
+
+    # DevOps Tools
+    "docker", "kubernetes", "git", "github", "gitlab",
+    "jenkins", "terraform",
+
+    # Environments
+    "jupyter", "google colab", "vscode", "rstudio", "dbeaver",
+}
+
+CONCEPT_KEYWORDS = {
+    # ML Core Concepts
+    "overfitting", "underfitting", "bias variance", "cross validation",
+    "train test split", "confusion matrix", "precision", "recall",
+    "f1 score", "roc auc", "regularization", "normalisasi", "standardisasi",
+    "one hot encoding", "feature importance",
+
+    # Statistical concepts
+    "uji hipotesis", "hypothesis testing", "t-test", "anova",
+    "p-value", "confidence interval", "probabilitas",
+
+    # Data Engineering
+    "etl", "elt", "batch processing", "stream processing",
+    "data pipeline", "data warehouse", "data lake", "lakehouse",
+
+    # NLP Concepts
+    "tokenisasi", "stemming", "lemmatization", "named entity recognition",
+    "embedding", "word2vec", "tf-idf",
+
+    # Business / product data
+    "churn rate", "retention", "cohort analysis",
+    "customer segmentation", "forecasting",
+}
 
 
 def extract_manual_keywords(text_stemmed: str) -> Tuple[Set[str], Set[str], Set[str]]:
