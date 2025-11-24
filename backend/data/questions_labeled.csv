@@ -1,61 +1,287 @@
 id,question,pseudo_label,pseudo_score,second_label,second_score
-1,Apa itu data analisis dan apa tujuannya dalam bisnis?,Data_Analyst_Junior,0.08739115798350233,Data_Analyst_Senior,0.058309000157633836
-2,Bagaimana cara kamu menangani data yang hilang (missing values) dalam dataset?,Data_Analyst_Junior,0.058782557339302606,Data_Engineer_Junior,0.05507261388443291
-3,Dapatkah kamu menggambarkan langkah-langkah yang kamu lakukan saat menganalisis dataset baru?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
-4,Apa yang dimaksud dengan outlier dan bagaimana kamu mengidentifikasinya?,Data_Analyst_Junior,0.0360655708417216,ML_Engineer_Senior,0.01976823871556064
-5,Bagaimana cara menggunakan SQL untuk menampilkan total jumlah penjualan dari tabel `sales`?,Data_Engineer_Junior,0.028468094587950212,Data_Analyst_Junior,0.020754327461600015
-6,Apa langkah-langkah dasar dalam visualisasi data yang efektif?,Data_Analyst_Junior,0.07313657386856823,Data_Engineer_Junior,0.05583156774190918
-7,Apa perbedaan antara analisis deskriptif dan analisis inferensial?,Data_Analyst_Junior,0.10518198123091663,Data_Analyst_Senior,0.031682272728068055
-8,Bagaimana kamu memastikan kualitas data yang akan dianalisis?,Data_Analyst_Senior,0.049063677736494685,Data_Engineer_Junior,0.03332695023202485
-9,"Mengapa penting untuk mengetahui jenis data (numerik, kategorikal)?",Data_Engineer_Junior,0.036939649858273645,Data_Engineer_Senior,0.028382110689579645
-10,Bagaimana cara kamu menggunakan alat seperti Excel atau Python dalam analisis data?,Data_Analyst_Junior,0.07048137544532343,Data_Engineer_Junior,0.04193941686672652
-11,Bagaimana kamu mendefinisikan â€œdata-driven decision-makingâ€ dan mengapa penting dalam bisnis?,Data_Analyst_Junior,0.03464155783056323,Data_Analyst_Senior,0.033852848997504306
-12,Ceritakan pengalamanmu tentang proyek analisis data yang paling kompleks yang pernah kamu kerjakan.,Data_Analyst_Junior,0.04968885396580766,Data_Analyst_Senior,0.03318921885049057
-13,Bagaimana kamu memastikan kualitas data dalam analisis yang kamu lakukan?,Data_Analyst_Senior,0.06410128458673472,Data_Analyst_Junior,0.052388995337731906
-14,Apa pendekatanmu saat mempresentasikan hasil analisis kepada pemangku kepentingan non-teknis?,Data_Analyst_Junior,0.048405100155088976,Data_Analyst_Senior,0.012828455741148196
-15,"Dalam konteks alat analisis, platform atau perangkat lunak mana yang paling kamu kuasai dan mengapa?",Data_Analyst_Junior,0.016234421001589675,Data_Engineer_Senior,0.014409334985144412
-16,Bagaimana cara kamu menangani dan menganalisis data besar (big data)?,Data_Engineer_Senior,0.09879533771814314,Data_Engineer_Junior,0.06959668571109495
-17,Ceritakan tentang pengalamanmu menggunakan machine learning dalam analisis data.,Data_Analyst_Junior,0.06524167340247529,ML_Engineer_Junior,0.05204212127629345
-18,"Bagaimana kamu berkolaborasi dengan tim lintas fungsi, seperti tim TI atau pemasaran, dalam proyek analisis data?",Data_Analyst_Junior,0.04058891749972189,Data_Analyst_Senior,0.02524230819987437
-19,"Apa tantangan terbesar yang pernah kamu hadapi dalam analisis data, dan bagaimana kamu mengatasinya?",Data_Analyst_Junior,0.04938597555367412,Data_Engineer_Junior,0.024462276823310657
-20,Apa indikator kinerja utama (KPI) yang kamu gunakan untuk menilai keberhasilan suatu analisis data?,Data_Analyst_Junior,0.04495546359463217,Data_Analyst_Senior,0.03355825000487714
-21,"Apa yang kamu ketahui tentang ETL (Extract, Transform, Load) dan mengapa itu penting dalam pengolahan data?",Data_Engineer_Junior,0.12811492153982554,Data_Analyst_Junior,0.019386483491240242
-22,Bagaimana cara kamu melakukan pembersihan data (data cleaning)?,Data_Analyst_Junior,0.1304759207402342,Data_Engineer_Junior,0.10344177866690248
-23,Apa itu data warehouse dan sebutkan beberapa contoh sistem data warehouse yang umum digunakan?,Data_Engineer_Junior,0.10387464582032702,Data_Engineer_Senior,0.03809171042000779
-24,Bagaimana cara kamu memastikan keamanan data dalam sistem yang kamu bangun?,Data_Engineer_Senior,0.03132033032111023,Data_Engineer_Junior,0.030073861548588154
-25,"Apa itu normalisasi dalam konteks basis data, dan mengapa itu diperlukan?",Data_Engineer_Junior,0.026292579427537977,Data_Analyst_Junior,0.022729311108804377
-26,Dapatkah kamu menjelaskan perbedaan antara SQL dan NoSQL?,Data_Analyst_Junior,0.041238047393990444,Data_Engineer_Junior,0.028621755354206264
-27,Apa pentingnya indeks dalam database dan bagaimana cara kerjanya?,Data_Engineer_Junior,0.05633014368173884,ML_Engineer_Senior,0.006976722907859235
-28,Bagaimana kamu mengelola dan mendokumentasikan proses atau alur kerja dalam proyek yang kamu kerjakan?,ML_Engineer_Senior,0.005214900992134618,Data_Analyst_Junior,0.0
-29,Bisakah kamu memberi contoh bagaimana kamu menggunakan Python dalam pengolahan data?,Data_Engineer_Junior,0.04148594787355694,Data_Analyst_Junior,0.022503399010421584
-30,Apa itu data pipeline dan sebutkan komponen utama yang terlibat dalam membangunnya?,Data_Engineer_Junior,0.0646190527895607,Data_Engineer_Senior,0.061448820344795374
-31,"Jelaskan arsitektur pipeline data yang pernah kamu desain. Bagaimana kamu mempertimbangkan skalabilitas, keandalan, dan biaya operasional?",ML_Engineer_Senior,0.088794081732797,Data_Engineer_Senior,0.07516254479222645
-32,Bagaimana pendekatanmu dalam mengelola data lineage dan metadata untuk auditabilitas sistem data?,Data_Engineer_Senior,0.06620824877836363,Data_Engineer_Junior,0.055875653409346054
-33,Ceritakan tentang pengalamanmu dalam mengoptimalkan kinerja query di database besar. Apa strategi yang kamu gunakan?,Data_Engineer_Junior,0.02601825146420269,Data_Engineer_Senior,0.024506842568027182
-34,Bagaimana kamu menangani pengelolaan skema dan migrasi data dalam sistem yang terus berubah?,Data_Engineer_Junior,0.03349497069066311,Data_Engineer_Senior,0.025493796728779904
-35,Apa pengalamanmu dalam bekerja dengan data real-time? Sebutkan teknologi yang digunakan dan tantangan yang dihadapi.,Data_Analyst_Senior,0.041099541542431076,ML_Engineer_Senior,0.03153231089870995
-36,Apa peranmu dalam kolaborasi lintas tim saat menyusun solusi data?,ML_Engineer_Senior,0.03986940132826412,Data_Engineer_Junior,0.026105708105200617
-37,Bagaimana strategi kamu dalam menjaga keamanan data dalam sistem yang kamu bangun?,Data_Engineer_Senior,0.02728878662805454,Data_Engineer_Junior,0.026202762948765255
-38,Jelaskan bagaimana kamu menangani data duplikat dalam pemrosesan ETL.,Data_Engineer_Junior,0.08111683180887001,Data_Analyst_Junior,0.046672875088241486
-39,Apa pengalamanmu dalam menggunakan cloud services untuk data engineering? Sebutkan layanan dan bagaimana kamu memanfaatkannya.,Data_Engineer_Senior,0.03779723069535801,Data_Engineer_Junior,0.029182919948068264
-40,Bagaimana kamu melakukan monitoring dan alerting dalam sistem data yang kompleks?,Data_Engineer_Senior,0.06692038492283361,ML_Engineer_Senior,0.05730965105260805
-41,"Apa itu machine learning, dan bagaimana cara kerjanya secara umum?",ML_Engineer_Junior,0.04910378860957918,ML_Engineer_Senior,0.03320653311084715
-42,Apa perbedaan antara supervised learning dan unsupervised learning?,ML_Engineer_Junior,0.14398269729060162,ML_Engineer_Senior,0.03817120403032294
-43,Apa itu overfitting dan bagaimana cara menghindarinya?,ML_Engineer_Junior,0.023055953655567014,ML_Engineer_Senior,0.008648373491005612
-44,Sebutkan beberapa teknik preprocessing data yang umum digunakan sebelum membangun model ML.,ML_Engineer_Senior,0.05795810446371971,ML_Engineer_Junior,0.026439825917101072
-45,"Apa itu model validation, dan mengapa itu penting?",ML_Engineer_Junior,0.08351735264001804,ML_Engineer_Senior,0.05551328933506313
-46,Dapatkah Anda menjelaskan apa itu confusion matrix dan bagaimana cara membacanya?,ML_Engineer_Junior,0.06018619484397224,Data_Analyst_Junior,0.012774423498025121
-47,Bagaimana cara memilih algoritma machine learning yang tepat untuk suatu masalah?,ML_Engineer_Junior,0.0600555205010358,ML_Engineer_Senior,0.030463060446573535
-48,Apa yang dimaksud dengan feature engineering dan mengapa itu penting?,ML_Engineer_Junior,0.05073196375310224,ML_Engineer_Senior,0.04677410712395609
-49,Bagaimana Anda menangani data yang tidak seimbang (imbalanced data) dalam masalah klasifikasi?,Data_Engineer_Junior,0.06079859971662992,Data_Analyst_Junior,0.04438532656811539
-50,Dapatkah Anda menjelaskan apa itu hyperparameter tuning dan metode yang umum digunakan?,ML_Engineer_Junior,0.07333738027336024,Data_Analyst_Junior,0.011674306162853934
-51,Bagaimana Anda mendesain arsitektur sistem untuk model machine learning yang skalabel dan dapat diandalkan di lingkungan produksi?,ML_Engineer_Senior,0.10993027473194816,ML_Engineer_Junior,0.05614237679676101
-52,Ceritakan tentang pengalaman Anda dalam memilih algoritma model yang tepat. Apa faktor utama yang Anda pertimbangkan?,ML_Engineer_Junior,0.036378752544270095,ML_Engineer_Senior,0.030630175672392543
-53,Bagaimana Anda menangani feature engineering dalam projek machine learning yang kompleks?,ML_Engineer_Junior,0.09300793532323215,ML_Engineer_Senior,0.05071645462170975
-54,Apa strategi Anda dalam mengatasi masalah overfitting pada model machine learning?,ML_Engineer_Junior,0.0881738999260807,ML_Engineer_Senior,0.061093501768080746
-55,Dapatkah Anda menjelaskan pendekatan untuk evaluasi model yang komprehensif?,ML_Engineer_Junior,0.07276796737271973,ML_Engineer_Senior,0.04955876012424748
-56,"Ceritakan tentang pengalaman Anda dalam kolaborasi lintas tim, terutama dalam pengembangan model dan integrasi produk.",ML_Engineer_Senior,0.04778836264267012,Data_Engineer_Junior,0.029378035983011162
-57,Bagaimana Anda memastikan keberlanjutan model machine learning di produksi?,ML_Engineer_Senior,0.08391806967329211,ML_Engineer_Junior,0.08183745174343271
-58,Apa yang Anda lakukan jika menemukan bias dalam model machine learning Anda?,ML_Engineer_Junior,0.06798898485107659,ML_Engineer_Senior,0.05779336794793882
-59,Jelaskan bagaimana Anda menangani siklus hidup model dari develop hingga deployment ke produksi.,ML_Engineer_Senior,0.07092193363256284,ML_Engineer_Junior,0.024856018941262808
-60,Bagaimana Anda melakukan komunikasi hasil model kepada pemangku kepentingan non-teknis?,ML_Engineer_Senior,0.036254621640190415,ML_Engineer_Junior,0.02771283471558081
+1,Kamu diberi dataset penjualan dengan 20% data hilang. Bagaimana kamu menentukan apakah missing value perlu diimputasi atau dibuang?,Data_Analyst_Junior,0.06554242433471759,Data_Engineer_Junior,0.05713797595639778
+2,"Jika grafik penjualan tiba-tiba menurun pada satu minggu tertentu, teknik EDA apa yang pertama kamu lakukan?",Data_Analyst_Junior,0.023142421943766422,Data_Analyst_Senior,0.0
+3,Kamu menemukan outlier ekstrem pada data keuangan. Bagaimana kamu mengecek apakah itu error atau kejadian valid?,Data_Analyst_Junior,0.04242083546749039,Data_Engineer_Junior,0.03608747833917431
+4,"Jika stakeholder meminta insight cepat, tetapi datamu belum bersih, strategi apa yang kamu lakukan?",Data_Analyst_Senior,0.014196671450714812,Data_Analyst_Junior,0.010501943926575523
+5,Bagaimana kamu menentukan jenis grafik terbaik untuk menjelaskan tren musiman kepada manajemen?,Data_Analyst_Junior,0.028448389302729277,Data_Engineer_Senior,0.004982056678821525
+6,"Jika hasil SQL dan dashboard BI berbeda, langkah apa yang kamu tempuh untuk menemukan sumber masalah?",Data_Analyst_Senior,0.06130035740709449,Data_Analyst_Junior,0.0444439351322857
+7,Bagaimana kamu menggunakan analisis korelasi untuk menemukan faktor-faktor yang mempengaruhi retensi pelanggan?,Data_Analyst_Senior,0.04167137998937028,Data_Analyst_Junior,0.020566060447601963
+8,Dataset yang kamu terima memiliki 100 kolom. Bagaimana kamu memilih kolom mana yang paling relevan untuk analisis?,Data_Analyst_Junior,0.018771279904078716,Data_Analyst_Senior,0.013222241788661581
+9,Bagaimana kamu menjelaskan hasil analisis statistik kepada stakeholder non-teknis?,Data_Analyst_Junior,0.102255966655546,Data_Analyst_Senior,0.03307331256338346
+10,"Jika tolok ukur performa perusahaan berubah, bagaimana kamu memperbarui KPI dalam dashboard?",Data_Analyst_Senior,0.027112122134060383,ML_Engineer_Senior,0.01265035709284994
+11,Kamu menemukan distribusi data sangat skewed. Teknik transformasi apa yang kamu pilih?,Data_Engineer_Junior,0.03201783581619754,Data_Analyst_Junior,0.027718956069409457
+12,Bagaimana kamu menilai apakah sebuah variabel merupakan confounding variable?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+13,"Jika hasil A/B testing tidak signifikan secara statistik, apakah eksperimen harus dihentikan atau diperbaiki?",Data_Analyst_Senior,0.04341960749260256,Data_Analyst_Junior,0.024186436967798146
+14,Bagaimana kamu menilai kualitas data dari berbagai sumber sebelum dianalisis?,Data_Engineer_Junior,0.04701728465903314,Data_Analyst_Senior,0.04638390680061527
+15,"Jika dataset sangat besar, bagaimana kamu melakukan EDA tanpa loading penuh ke RAM?",Data_Analyst_Junior,0.014562912405826689,Data_Analyst_Senior,0.01146776018725499
+16,Bagaimana kamu menganalisis anomali yang muncul di time-series mingguan?,Data_Analyst_Senior,0.038669249975403996,Data_Analyst_Junior,0.0
+17,Bagaimana kamu memutuskan apakah harus menggunakan median atau mean sebagai measure of center?,Data_Analyst_Junior,0.03313767578294816,Data_Analyst_Senior,0.0
+18,"Ketika data memiliki banyak kategori unik, bagaimana kamu menanganinya dalam analisis?",Data_Analyst_Junior,0.051942348608557176,Data_Engineer_Junior,0.032228964151581996
+19,"Jika kamu menemukan multikolinearitas dalam analisis regresi, apa langkah koreksi yang kamu lakukan?",Data_Analyst_Senior,0.05063376234740019,Data_Analyst_Junior,0.023037846190588643
+20,Bagaimana kamu menentukan apakah korelasi bersifat kausal atau tidak?,Data_Analyst_Senior,0.019851583996373042,Data_Analyst_Junior,0.0
+21,Bagaimana kamu menggunakan pivot table untuk menemukan pola tersembunyi?,Data_Analyst_Junior,0.060340363752281065,Data_Engineer_Senior,0.006015688108209755
+22,"Jika histogram menunjukkan pola multimodal, apa interpretasi awalmu?",Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+23,Bagaimana kamu menentukan metode sampling terbaik ketika dataset terlalu besar?,Data_Engineer_Senior,0.011098906154480037,Data_Analyst_Junior,0.0
+24,"Jika stakeholders meminta insight dari data real-time, alat BI apa yang kamu gunakan?",Data_Analyst_Senior,0.04554417074747151,Data_Analyst_Junior,0.036117485292417664
+25,Bagaimana kamu melakukan data cleaning pada data yang bersifat semi-terstruktur?,Data_Analyst_Junior,0.09581403238129453,Data_Engineer_Junior,0.08582265249726688
+26,Kamu menemukan duplikasi data pelanggan. Bagaimana menentukan duplikasi yang valid atau tidak?,Data_Engineer_Junior,0.028638020998888247,Data_Analyst_Junior,0.02479293261855707
+27,"Jika terjadi perbedaan tipe data antara sumber sistem, bagaimana kamu menyeragamkannya?",Data_Engineer_Junior,0.08027564350448815,Data_Engineer_Senior,0.0346115167953724
+28,Bagaimana kamu menentukan confidence interval yang tepat untuk laporan analisis?,Data_Analyst_Junior,0.043410524719499334,Data_Analyst_Senior,0.0185497640987132
+29,"Jika kamu menemukan hubungan nonlinear, apakah korelasi Pearson masih tepat digunakan?",Data_Analyst_Senior,0.015493676584223775,Data_Analyst_Junior,0.0
+30,Bagaimana kamu mengidentifikasi faktor penyebab churn pelanggan?,Data_Analyst_Senior,0.01859543448293068,Data_Analyst_Junior,0.0
+31,"Jika kamu harus membuat dashboard dalam sehari, bagian mana yang kamu prioritaskan?",Data_Analyst_Senior,0.011857731300122545,Data_Analyst_Junior,0.01122274607789166
+32,Bagaimana kamu mengevaluasi efektivitas promosi menggunakan data transaksi?,Data_Engineer_Junior,0.03707221509811474,Data_Analyst_Junior,0.03209470832442975
+33,Bagaimana kamu membuat segmentasi pelanggan hanya dengan data demografis?,Data_Analyst_Senior,0.10693812097863382,ML_Engineer_Senior,0.0451461066944696
+34,"Jika kamu menemukan nilai negatif pada kolom yang tidak boleh negatif, apa langkah investigasimu?",Data_Analyst_Junior,0.01270570004311187,Data_Analyst_Senior,0.0
+35,Bagaimana kamu menentukan granularity yang tepat untuk analisis time-series?,Data_Analyst_Senior,0.06356112468625705,Data_Analyst_Junior,0.02821472040637761
+36,"Jika meeting butuh insight cepat, bagaimana kamu melakukan EDA super singkat?",Data_Analyst_Junior,0.026590473615733252,Data_Analyst_Senior,0.0
+37,Bagaimana kamu mendeteksi apakah data bersifat seasonality atau tidak?,Data_Engineer_Junior,0.03866241775116968,Data_Analyst_Junior,0.03347140216890219
+38,Bagaimana kamu mengukur dampak suatu kebijakan perusahaan menggunakan data historis?,Data_Engineer_Junior,0.03258650182102184,Data_Analyst_Junior,0.02821127004391978
+39,"Jika data tidak normal, apakah uji-t masih dapat digunakan?",Data_Engineer_Junior,0.03337069525996192,Data_Analyst_Senior,0.030837896249354985
+40,Bagaimana kamu menentukan apakah data memiliki heteroskedastisitas?,Data_Engineer_Junior,0.049372023439684436,Data_Analyst_Junior,0.042743080970205176
+41,"Jika kamu harus menggabungkan dua dataset berbeda struktur, apa strategi terbaik?",Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+42,Bagaimana kamu menghindari misinterpretasi saat memvisualisasikan data?,Data_Engineer_Junior,0.041713077841956214,Data_Analyst_Junior,0.036112464904205305
+43,"Jika p-value rendah tetapi efek tidak praktis, bagaimana kamu menjelaskannya?",Data_Analyst_Senior,0.012869874637978741,Data_Engineer_Junior,0.012662791647152099
+44,Bagaimana kamu mendeteksi data drift dalam dataset historis?,ML_Engineer_Senior,0.07214246881034636,Data_Engineer_Junior,0.04091968575966369
+45,"Jika dashboard lambat, optimasi apa yang kamu lakukan?",Data_Analyst_Senior,0.03589820521626105,Data_Engineer_Senior,0.01935929828645614
+46,Kamu perlu memberi insight yang actionable. Apa tiga langkah inti yang kamu lakukan?,Data_Analyst_Junior,0.0107827328276861,Data_Analyst_Senior,0.0
+47,Bagaimana kamu memilih antara heatmap atau correlation matrix?,ML_Engineer_Junior,0.024843345320388198,ML_Engineer_Senior,0.011330738395318025
+48,"Jika hanya punya 5 menit untuk presentasi data, apa yang kamu tampilkan?",Data_Engineer_Junior,0.037017441462778036,Data_Analyst_Senior,0.029322153732779035
+49,Bagaimana kamu menangani kategori imbalance dalam analisis?,Data_Analyst_Junior,0.03216141849693806,Data_Analyst_Senior,0.02265407866729686
+50,"Dataset hanya memiliki 50 baris, teknik analisis apa yang aman digunakan?",Data_Analyst_Junior,0.02279799755106158,Data_Analyst_Senior,0.016058608547622387
+51,Bagaimana kamu menentukan apakah dataset cukup representatif?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+52,"Jika kamu diberi pertanyaan bisnis tanpa data, bagaimana kamu menentukan data yang diperlukan?",Data_Analyst_Junior,0.06770820872543329,Data_Engineer_Junior,0.06208941981707253
+53,Bagaimana kamu menilai apakah sebuah fitur benar-benar mempengaruhi outcome?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+54,Bagaimana kamu melakukan root-cause analysis berbasis data?,Data_Analyst_Senior,0.17491190264914025,Data_Analyst_Junior,0.054716653981555355
+55,"Jika key metric perusahaan stagnan, analisis apa yang pertama kamu lakukan?",Data_Engineer_Junior,0.03541724638438898,Data_Analyst_Senior,0.034975809500810445
+56,Bagaimana kamu mendeteksi trend reversal pada data penjualan?,Data_Engineer_Junior,0.03932551145479926,Data_Analyst_Junior,0.034045465492429886
+57,"Jika kamu tidak boleh menghapus outlier, apa strategi alternatif?",Data_Analyst_Junior,0.028228018180641388,Data_Engineer_Junior,0.014672631327369165
+58,Bagaimana kamu memvalidasi hasil analisis agar tidak bias?,Data_Analyst_Junior,0.06319819589208336,Data_Analyst_Senior,0.04255150087095658
+59,"Jika hasil analisis bertentangan dengan intuisi manajemen, apa yang kamu lakukan?",Data_Analyst_Junior,0.05361389568842974,Data_Analyst_Senior,0.030843244425722414
+60,Bagaimana kamu menentukan ukuran sample minimal untuk eksperimen?,ML_Engineer_Junior,0.019833306056278734,Data_Analyst_Senior,0.01938520289194666
+61,"Jika kategori terlalu banyak, bagaimana kamu menyederhanakannya?",Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+62,Bagaimana kamu menentukan KPI utama dari dataset yang kompleks?,Data_Analyst_Senior,0.04190490678592859,Data_Analyst_Junior,0.0
+63,"Jika kamu menemukan missing value pada kolom target, apa langkah selanjutnya?",Data_Engineer_Junior,0.042620530682217245,Data_Analyst_Junior,0.040997864940627855
+64,Bagaimana kamu membuat wawasan dari dataset yang sangat noise?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+65,"Jika ada perubahan besar mendadak di dataset, bagaimana kamu mengonfirmasi penyebabnya?",Data_Engineer_Senior,0.010026280125141401,Data_Analyst_Junior,0.0
+66,Bagaimana kamu memutuskan apakah perlu membuat fitur baru untuk analisis?,Data_Analyst_Junior,0.027111262331532163,Data_Analyst_Senior,0.019096815325067986
+67,"Jika kamu menyadari laporan salah karena script, bagaimana kamu memperbaikinya?",Data_Engineer_Junior,0.021109008877497004,Data_Analyst_Junior,0.016758716804804615
+68,Bagaimana kamu memilih chart terbaik untuk menunjukkan distribusi kategorikal?,Data_Analyst_Junior,0.08377410220001912,Data_Engineer_Senior,0.006054263241402021
+69,"Jika stakeholders meminta filter tambahan, bagaimana kamu memperbaiki dashboard?",Data_Analyst_Junior,0.03280328883305191,Data_Analyst_Senior,0.013200003017972334
+70,Bagaimana kamu memprioritaskan tugas analisis saat semuanya terasa penting?,Data_Analyst_Junior,0.024530477912425998,Data_Analyst_Senior,0.01727894484589956
+71,Dataset berisi teks panjang. Analisis apa yang relevan?,Data_Analyst_Junior,0.027094947206765984,Data_Analyst_Senior,0.019085323166537885
+72,"Jika variabel numerik memiliki banyak nilai nol, bagaimana kamu memperlakukannya?",Data_Analyst_Junior,0.015533197806534437,Data_Analyst_Senior,0.0
+73,Bagaimana kamu mengecek apakah data mengalami seasonality mingguan?,Data_Engineer_Junior,0.03905159284231174,Data_Analyst_Junior,0.033808324605402965
+74,"Jika dataset hasil merge membengkak dua kali lipat, apa yang kamu periksa?",Data_Analyst_Junior,0.011442296703956266,Data_Analyst_Senior,0.0
+75,Bagaimana kamu membuat laporan analisis yang mudah dipahami?,Data_Analyst_Junior,0.04823323536480886,Data_Analyst_Senior,0.020610558004451468
+76,"Jika perusahaan meminta prediksi tanpa model ML, metode apa yang kamu pilih?",ML_Engineer_Senior,0.03692370111279678,ML_Engineer_Junior,0.01860901999082456
+77,Bagaimana kamu membuktikan bahwa insight benar-benar berdampak bisnis?,Data_Analyst_Senior,0.02951246601281312,Data_Analyst_Junior,0.025711346317643265
+78,Bagaimana kamu menentukan depth insight yang tepat untuk eksekutif?,Data_Analyst_Junior,0.014358503067525086,Data_Engineer_Senior,0.006434347484093854
+79,"Jika value berubah karena timezone, bagaimana kamu menanganinya?",Data_Analyst_Senior,0.015623391514719955,Data_Engineer_Junior,0.015372003002187256
+80,Bagaimana kamu mengevaluasi performa dashboard BI?,Data_Analyst_Senior,0.061227935181171325,ML_Engineer_Senior,0.020134088432996994
+81,"Jika data terlalu granular, bagaimana kamu menaikkan level agregasi?",Data_Analyst_Junior,0.051404972624068415,Data_Engineer_Junior,0.035408439552051245
+82,Bagaimana kamu menentukan apakah data perlu distandarisasi sebelum analisis?,Data_Analyst_Junior,0.06361722569815931,Data_Engineer_Junior,0.03947294147017642
+83,"Jika kamu harus membangun automated report, pipeline apa yang kamu pilih?",Data_Engineer_Senior,0.03270910390210632,Data_Analyst_Junior,0.02058153830524909
+84,Bagaimana kamu mencegah misinterpretasi angka oleh stakeholder?,Data_Analyst_Senior,0.02021833978175973,Data_Analyst_Junior,0.0
+85,"Jika dataset mengandung banyak kolom boolean, analisis apa yang paling relevan?",Data_Analyst_Junior,0.023720753179905765,Data_Analyst_Senior,0.01670858543245778
+86,Bagaimana kamu memilih metode forecasting yang paling masuk akal?,Data_Analyst_Senior,0.020041429934336788,Data_Analyst_Junior,0.0
+87,Bagaimana kamu memastikan integritas data saat update harian?,Data_Engineer_Junior,0.038957167257382755,Data_Analyst_Junior,0.03372657708644197
+88,"Jika data tidak update, langkah troubleshooting apa yang kamu lakukan?",Data_Engineer_Junior,0.037976381502500066,Data_Analyst_Junior,0.03287747668474204
+89,Bagaimana kamu melakukan sanity check sebelum menganalisis dataset besar?,Data_Engineer_Senior,0.01171854303418182,Data_Analyst_Junior,0.0
+90,"Jika grafik menunjukkan fluktuasi tinggi, apa hipotesis awalmu?",Data_Analyst_Senior,0.021047327914454593,Data_Analyst_Junior,0.016440878939367156
+91,Bagaimana kamu menentukan threshold anomaly detection sederhana?,Data_Engineer_Junior,0.044917843309916675,Data_Analyst_Junior,0.043207713371166453
+92,"Jika kamu harus memutuskan insight mana yang ditampilkan, apa kriteriamu?",Data_Analyst_Junior,0.012914775729412024,Data_Analyst_Senior,0.0
+93,Bagaimana kamu merancang dashboard agar membantu pengambilan keputusan harian?,Data_Analyst_Senior,0.0491025854424719,Data_Analyst_Junior,0.012244921733352456
+94,"Jika kamu harus memilih antara data lengkap dan data terbaru, mana yang kamu prioritaskan?",Data_Engineer_Junior,0.05926580837401047,Data_Analyst_Junior,0.05130847531881477
+95,Bagaimana kamu melakukan benchmarking antar cabang perusahaan menggunakan data?,Data_Engineer_Junior,0.03680187396671566,Data_Analyst_Junior,0.03186066458743193
+96,"Jika dataset memiliki variasi tinggi antar grup, bagaimana kamu menghitung perbandingan secara adil?",Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+97,Bagaimana kamu mengidentifikasi metrik palsu yang terlihat bagus tetapi tidak bermakna?,Data_Analyst_Senior,0.016605253687758916,Data_Analyst_Junior,0.0
+98,"Jika data sangat tidak stabil, bagaimana kamu mengkomunikasikan ketidakpastian ke manajemen?",Data_Engineer_Junior,0.03274147137548337,Data_Analyst_Junior,0.028345432586849746
+99,Sebuah pipeline ETL harian tiba-tiba memproses data dua kali lipat dari biasanya. Langkah pertama apa yang kamu lakukan untuk menyelidikinya?,Data_Engineer_Junior,0.04353513610018519,Data_Engineer_Senior,0.039108182776468325
+100,"Jika batch job kamu terlambat 3 jam dari jadwal, komponen mana yang kamu cek terlebih dahulu?",Data_Engineer_Junior,0.02803998016911143,ML_Engineer_Senior,0.008997278172254866
+101,Kamu mendapati duplicate record muncul di data warehouse. Bagaimana kamu men-troubleshoot sumber duplikasi?,Data_Engineer_Junior,0.06533020891718147,Data_Analyst_Junior,0.02305067069808586
+102,"Jika data real-time dari Kafka mengalami delay, apa langkah investigasi utamamu?",Data_Engineer_Senior,0.0373634335027251,Data_Engineer_Junior,0.029444899114149242
+103,"Bagaimana kamu menentukan apakah pipeline harus berjalan sebagai batch, streaming, atau hybrid?",Data_Engineer_Senior,0.04535146312983639,Data_Engineer_Junior,0.037961325582901516
+104,"Jika tabel fact kamu terus membesar hingga mengganggu performa query, strategi optimasi apa yang kamu lakukan?",Data_Engineer_Senior,0.023098694376539882,Data_Analyst_Senior,0.023090171102980606
+105,Bagaimana kamu memilih metode partisi untuk tabel berukuran tera-byte?,Data_Engineer_Senior,0.005564789140232749,Data_Engineer_Junior,0.005473228450035541
+106,Log ingestion sering gagal karena schema berubah tiba-tiba. Bagaimana kamu mendesain mekanisme schema evolution?,Data_Engineer_Junior,0.049147946020504304,ML_Engineer_Senior,0.01002979412556427
+107,"Jika data late-arrival muncul pada data streaming, bagaimana kamu menanganinya?",Data_Engineer_Junior,0.06567068349764103,Data_Engineer_Senior,0.0635249800826235
+108,Bagaimana kamu merancang sistem data lineage untuk memudahkan auditing?,Data_Engineer_Senior,0.06646217996476202,Data_Engineer_Junior,0.041208444703419875
+109,"Jika salah satu node Hadoop mati saat proses sedang berjalan, apa yang kamu harapkan terjadi?",Data_Engineer_Senior,0.014251681700062243,Data_Analyst_Junior,0.0
+110,Bagaimana kamu memastikan data tetap konsisten di cluster dengan banyak node?,Data_Engineer_Junior,0.03212934332522279,Data_Analyst_Junior,0.027815492005249208
+111,"Jika sebuah job Spark memakan waktu lebih lama dari biasanya, komponen apa yang kamu cek?",Data_Analyst_Senior,0.014680925572322064,Data_Engineer_Senior,0.011745472229594277
+112,Bagaimana kamu menentukan jumlah executor dan memory untuk Spark job?,ML_Engineer_Senior,0.025108186322576054,Data_Engineer_Senior,0.021041870639222002
+113,"Jika join pada Spark menyebabkan data skew, bagaimana kamu memperbaikinya?",Data_Engineer_Junior,0.05264688474127793,Data_Analyst_Junior,0.047371116035890656
+114,Kamu diminta mendesain pipeline transaksi bank real-time. Komponen apa yang kamu pilih dan mengapa?,ML_Engineer_Senior,0.027357005741427146,Data_Engineer_Senior,0.02530756806698585
+115,Bagaimana kamu mendesain arsitektur Data Lake agar tetap terorganisir meski data sangat beragam?,Data_Engineer_Senior,0.11047210090602969,Data_Engineer_Junior,0.058461135754402684
+116,"Jika kamu perlu memindahkan data dari on-prem ke cloud tanpa downtime, strategi apa yang kamu pilih?",Data_Engineer_Senior,0.03252348270511285,Data_Engineer_Junior,0.025630692292317812
+117,Bagaimana kamu mendeteksi data drift pada data yang masuk ke data lake?,Data_Engineer_Senior,0.11354139477092723,Data_Engineer_Junior,0.09810487897455777
+118,"Jika sistem kamu menghasilkan event duplication, bagaimana kamu menjamin exactly-once processing?",Data_Engineer_Senior,0.024335464786701833,Data_Engineer_Junior,0.01328304811936566
+119,Bagaimana kamu melakukan versioning pada data large-scale?,ML_Engineer_Senior,0.06155172796661738,Data_Engineer_Junior,0.04061192191222765
+120,"Jika performance query menurun akibat table scan besar, optimasi apa yang kamu lakukan?",Data_Analyst_Senior,0.04355417695064136,Data_Engineer_Senior,0.03507001473745873
+121,Kamu menemukan anomali data di raw zone. Bagaimana kamu menentukan apakah data itu harus diperbaiki atau di-flag?,Data_Engineer_Junior,0.04874525730319772,Data_Analyst_Junior,0.04220046768732114
+122,"Jika data team lain sering mengakses tabel yang sama, bagaimana kamu memastikan tidak terjadi deadlock?",Data_Engineer_Junior,0.026598025199421445,Data_Analyst_Junior,0.023026837175010768
+123,Bagaimana kamu mendesain dataset agar mudah di-query oleh BI Analyst?,Data_Analyst_Senior,0.04381019420276939,Data_Engineer_Senior,0.013991470900856803
+124,"Jika kamu perlu memilih antara Parquet, Avro, dan JSON, faktor apa yang kamu pertimbangkan?",Data_Engineer_Junior,0.03506074346219619,ML_Engineer_Senior,0.024941934539931817
+125,Bagaimana kamu mengelola file kecil yang terlalu banyak pada HDFS?,ML_Engineer_Junior,0.017738856907691253,Data_Engineer_Junior,0.014870271452324783
+126,"Jika tabel dimensi sering berubah, bagaimana kamu menangani SCD (Slowly Changing Dimension)?",Data_Engineer_Junior,0.011454175188443584,Data_Analyst_Junior,0.0
+127,Bagaimana kamu mendesain ETL yang tetap berjalan meskipun ada satu source yang bermasalah?,Data_Engineer_Junior,0.01111574351595099,Data_Analyst_Junior,0.0
+128,"Jika API untuk ingestion lambat, bagaimana kamu melakukan backpressure handling?",ML_Engineer_Senior,0.035732599823201414,Data_Engineer_Senior,0.005835483149973691
+129,Bagaimana kamu mengatur orchestrasi pipeline agar dependensi antar job tetap aman?,Data_Engineer_Senior,0.028269699933948143,Data_Engineer_Junior,0.024349381019652984
+130,"Jika kamu diberi dataset tanpa dokumentasi, bagaimana kamu melakukan profiling awal?",Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+131,Bagaimana kamu menentukan apakah perlu re-partition pada Spark?,Data_Engineer_Senior,0.01698463182360731,Data_Analyst_Junior,0.0
+132,"Jika storage cost membengkak, apa strategi yang kamu sarankan ke perusahaan?",Data_Analyst_Senior,0.011830732515412697,Data_Analyst_Junior,0.0
+133,Bagaimana kamu mengonversi pipeline manual menjadi pipeline otomatis?,Data_Engineer_Senior,0.06633971145142452,Data_Engineer_Junior,0.032624092929053806
+134,"Jika kamu harus memvalidasi 10 juta baris data setiap hari, teknik validasi apa yang kamu pakai?",Data_Engineer_Junior,0.0259467026816324,Data_Analyst_Junior,0.022462964577210812
+135,Bagaimana kamu mendesain alerting system untuk pipeline data?,Data_Engineer_Senior,0.12542986692233665,Data_Engineer_Junior,0.08927282074251972
+136,"Jika tabel tidak sinkron antara development dan production, bagaimana kamu mengatasinya?",ML_Engineer_Senior,0.04462659397008188,Data_Analyst_Junior,0.0
+137,Bagaimana kamu menentukan granularity terbaik untuk tabel fact?,Data_Engineer_Senior,0.007061077780060499,Data_Engineer_Junior,0.006944897788548464
+138,"Jika database OLTP menjadi bottleneck untuk ingestion, bagaimana kamu mengurangi bebannya?",Data_Engineer_Junior,0.04189583775585802,ML_Engineer_Senior,0.017134857887073193
+139,Bagaimana kamu mendesain skema BigQuery atau Redshift agar hemat biaya?,ML_Engineer_Senior,0.018126892471897523,Data_Analyst_Junior,0.0
+140,"Jika ingestion ke data lake tidak teratur, bagaimana kamu memastikan watermark konsisten?",Data_Engineer_Senior,0.06306763904321155,Data_Engineer_Junior,0.03078541276036693
+141,Bagaimana kamu mengatasi file corrupt pada HDFS?,Data_Engineer_Junior,0.01828039360500908,Data_Analyst_Junior,0.0
+142,"Jika cluster kamu mengalami hotspotting, apa penyebab dan solusinya?",ML_Engineer_Senior,0.019170976199774332,Data_Analyst_Junior,0.0
+143,Bagaimana kamu menangani perubahan schema di Kafka tanpa memutus consumer?,Data_Engineer_Junior,0.04558898316141534,Data_Engineer_Senior,0.018162523188234112
+144,"Jika kamu harus menghitung ulang seluruh warehouse, bagaimana kamu menghindari heavy recomputation?",Data_Engineer_Junior,0.01425351733379374,Data_Analyst_Junior,0.0
+145,Bagaimana kamu melakukan incremental load yang aman?,Data_Engineer_Junior,0.023884139809470382,Data_Analyst_Junior,0.0
+146,"Jika kode ETL terlalu kompleks, bagaimana kamu melakukan refactoring?",Data_Analyst_Senior,0.020221327943611162,Data_Engineer_Junior,0.01426738326778635
+147,Bagaimana kamu menyusun folder structure pada data lake?,Data_Engineer_Senior,0.07931099976432097,Data_Engineer_Junior,0.038714337514824025
+148,"Jika scheduler berhenti bekerja, bagaimana pipeline tetap bisa berjalan manual?",Data_Engineer_Senior,0.02827407249945699,Data_Engineer_Junior,0.013904431426122557
+149,Bagaimana kamu melakukan secure data masking untuk data sensitif?,Data_Engineer_Junior,0.07918196100176024,Data_Analyst_Junior,0.06327877652443338
+150,"Jika update data sering dilakukan oleh banyak tim, bagaimana kamu mencegah race condition?",Data_Engineer_Junior,0.027630686775124622,Data_Analyst_Junior,0.02392084828231374
+151,Bagaimana kamu membuat sistem audit log untuk seluruh pipeline?,Data_Engineer_Senior,0.07549606929302555,ML_Engineer_Senior,0.033625823196205135
+152,"Jika transformasi data memakan resource terlalu besar, bagaimana optimasinya?",Data_Engineer_Senior,0.03452622454057717,Data_Engineer_Junior,0.03331336201212293
+153,Bagaimana kamu mendesain multi-region data pipeline?,Data_Engineer_Junior,0.09163212801199351,Data_Engineer_Senior,0.07283000218489251
+154,"Jika konsistensi lebih penting daripada availability, sistem apa yang kamu pilih?",Data_Engineer_Senior,0.012091666753606177,ML_Engineer_Senior,0.011136911933232936
+155,Bagaimana kamu menangani batch job yang timeout saat memproses file besar?,Data_Engineer_Junior,0.06141230236279577,ML_Engineer_Senior,0.011195694281155258
+156,"Jika suatu job bergantung pada API eksternal, bagaimana kamu merancang fallback mechanism?",ML_Engineer_Senior,0.013800107469827587,Data_Analyst_Senior,0.013055889193756868
+157,Bagaimana kamu mendeteksi perubahan struktur tabel source tanpa notifikasi?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+158,"Jika tabel tiba-tiba membengkak, bagaimana kamu melacak sumber duplikasinya?",Data_Engineer_Junior,0.01384624275496103,Data_Analyst_Junior,0.0
+159,Bagaimana kamu mendesain metadata management yang rapi?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+160,"Jika perusahaan ingin pindah dari monolithic ETL ke microservices, apa dampaknya?",Data_Engineer_Junior,0.011324720270027974,Data_Analyst_Senior,0.010975254622762718
+161,Bagaimana kamu mengatur retention policy untuk cold data?,Data_Engineer_Junior,0.043462216713603855,Data_Engineer_Senior,0.032825889901764445
+162,"Jika suatu pipeline berubah behavior tanpa kode berubah, apa yang kamu curigai?",Data_Engineer_Senior,0.027028455800913377,Data_Engineer_Junior,0.013291870502383486
+163,Bagaimana kamu melakukan stress test untuk pipeline data?,Data_Engineer_Senior,0.09990636063777687,Data_Engineer_Junior,0.08969375890099848
+164,"Jika streaming job tumpang tindih dengan batch job, bagaimana kamu mengatur prioritas resource?",Data_Engineer_Junior,0.03878497197010982,ML_Engineer_Senior,0.019393285830863728
+165,Bagaimana kamu menangani schema mismatch pada file di data lake?,Data_Engineer_Junior,0.09908350915125315,Data_Engineer_Senior,0.07155023380520995
+166,"Jika partisi terlalu banyak, bagaimana kamu menggabungkannya tanpa kehilangan data?",Data_Engineer_Junior,0.03365515753200134,Data_Analyst_Junior,0.029136442528281722
+167,Bagaimana kamu memutuskan kapan harus menggunakan materialized view?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+168,"Jika cluster penuh, apa langkah mitigasi cepat?",Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+169,Bagaimana kamu memilih format kompresi untuk warehouse?,Data_Engineer_Junior,0.053026236944827304,Data_Engineer_Senior,0.007226005366249696
+170,"Jika raw data tidak dapat diubah, bagaimana kamu memperbaiki kualitas data di level processing?",Data_Engineer_Junior,0.06744233573039285,Data_Engineer_Senior,0.0518956038924073
+171,Bagaimana kamu mengatasi data integrity ketika file datang tidak berurutan?,Data_Engineer_Junior,0.04679679456389395,Data_Analyst_Junior,0.02816761921863967
+172,"Jika business logic berubah, bagaimana kamu meng-update ETL tanpa mempengaruhi data historis?",Data_Engineer_Junior,0.05712854986708646,Data_Analyst_Junior,0.02470145401320079
+173,Bagaimana kamu menghindari duplicate aggregation saat ETL rerun?,Data_Engineer_Junior,0.01437292767442551,Data_Analyst_Junior,0.0
+174,"Jika load harian menjadi load per jam, apa perubahan arsitektur yang kamu lakukan?",Data_Engineer_Junior,0.029639225947188978,Data_Engineer_Senior,0.010804918857930312
+175,Bagaimana kamu melakukan dependency management antar pipeline?,Data_Engineer_Senior,0.03980839930044276,Data_Engineer_Junior,0.019576704355813684
+176,"Jika data warehouse lambat saat peak time, strategi apa yang kamu pilih?",Data_Engineer_Junior,0.06595930642799906,Data_Analyst_Junior,0.028334014894927095
+177,Bagaimana kamu mengelola encryption-at-rest dan encryption-in-transit pada pipeline?,ML_Engineer_Senior,0.04191578083600712,Data_Engineer_Senior,0.024750335858952494
+178,"Jika data conversion sering gagal karena type mismatch, bagaimana kamu menanganinya?",Data_Engineer_Junior,0.03199220282968536,Data_Analyst_Junior,0.02769676469985101
+179,Bagaimana kamu mendesain CDC (Change Data Capture) pipeline yang reliabel?,Data_Engineer_Senior,0.05472522688346835,Data_Engineer_Junior,0.04856179882213113
+180,"Jika node executor sering mati, bagaimana kamu memastikan job tidak gagal total?",Data_Engineer_Junior,0.010233167254595929,Data_Analyst_Junior,0.0
+181,Bagaimana kamu mendesain rollback mechanism untuk data processing?,Data_Engineer_Junior,0.06519837554017623,Data_Engineer_Senior,0.05411799963717739
+182,"Jika job harus dipindah dari Hadoop ke Spark, bagaimana proses migrasinya?",Data_Engineer_Senior,0.029392134710815143,Data_Analyst_Senior,0.011162958870869556
+183,Bagaimana kamu mencegah tabel fact menjadi terlalu denormalized?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+184,"Jika kamu harus memilih antara ETL atau ELT, apa faktor penentunya?",Data_Engineer_Junior,0.012752214096674434,ML_Engineer_Senior,0.009375343460681244
+185,Bagaimana kamu membuat monitoring harian untuk memastikan tidak ada data hilang?,ML_Engineer_Senior,0.048161862781227596,Data_Analyst_Junior,0.045563799380269096
+186,"Jika pipeline bergantung pada banyak API yang tidak stabil, bagaimana kamu mendesain retry logic?",Data_Engineer_Senior,0.02696731048946145,ML_Engineer_Senior,0.02605284587268679
+187,Bagaimana kamu memutuskan jumlah cluster yang optimal di cloud?,Data_Engineer_Senior,0.02050189263157518,Data_Analyst_Junior,0.0
+188,"Jika tiba-tiba terjadi lonjakan data besar (data spike), apa strategi perlindungan pipeline?",Data_Engineer_Senior,0.07175981701981488,Data_Engineer_Junior,0.06582888184079731
+189,Bagaimana kamu melakukan backfilling tanpa mengganggu job reguler?,Data_Engineer_Junior,0.013119202025188764,Data_Analyst_Junior,0.0
+190,"Jika perusahaan ingin near-real-time analytics, arsitektur apa yang kamu usulkan?",Data_Engineer_Senior,0.012132805259083642,ML_Engineer_Senior,0.011174802153159046
+191,Model klasifikasi kamu memiliki akurasi 95% tetapi recall kelas minoritas hanya 20%. Bagaimana kamu memperbaikinya?,ML_Engineer_Junior,0.04542171892108342,ML_Engineer_Senior,0.03450192817933485
+192,"Jika model menunjukkan overfitting, bagaimana kamu memutuskan apakah perlu regularisasi atau menambah data?",ML_Engineer_Junior,0.05451319370397691,ML_Engineer_Senior,0.03542224891304861
+193,Dataset training jauh lebih bersih dibanding data real-time. Bagaimana kamu mencegah penurunan performa setelah deployment?,ML_Engineer_Senior,0.04809798959090569,Data_Engineer_Junior,0.024624959590040706
+194,"Jika model inference lambat, bagaimana kamu memilih antara quantization, pruning, atau distillation?",ML_Engineer_Senior,0.12507441624937266,ML_Engineer_Junior,0.018678928515339664
+195,Bagaimana kamu memutuskan threshold terbaik untuk model binary classification?,ML_Engineer_Senior,0.05147922956511415,ML_Engineer_Junior,0.03984418585097229
+196,Modelmu menghasilkan output probabilitas yang tidak terkalibrasi. Teknik apa yang kamu gunakan untuk memperbaikinya?,Data_Engineer_Senior,0.004689499442737499,Data_Engineer_Junior,0.004612340399539951
+197,"Jika training loss turun tetapi validation loss naik, langkah investigasi apa yang kamu ambil?",ML_Engineer_Junior,0.029095770843835987,Data_Analyst_Junior,0.0
+198,Bagaimana kamu merancang pipeline automated retraining untuk model produksi?,ML_Engineer_Senior,0.08338461094746695,Data_Engineer_Senior,0.040285880392013876
+199,Model kamu sering salah pada edge cases tertentu. Bagaimana kamu meningkatkan robustness?,ML_Engineer_Senior,0.023270211878977227,ML_Engineer_Junior,0.0172264165256611
+200,"Jika dataset sangat imbalance, kapan kamu memilih SMOTE daripada threshold tuning?",ML_Engineer_Junior,0.01751047311597964,Data_Analyst_Junior,0.0
+201,Model mengalami data leakage tanpa disadari. Bagaimana kamu mendeteksinya?,ML_Engineer_Senior,0.041237387544308834,Data_Engineer_Junior,0.035563344491538654
+202,"Jika kamu menemukan bahwa satu fitur membuat model sangat bias, apa strategi mitigasinya?",ML_Engineer_Senior,0.022745467782088104,ML_Engineer_Junior,0.016837960226706625
+203,Bagaimana kamu menentukan apakah harus menggunakan model linear atau nonlinear?,ML_Engineer_Senior,0.02868470400716757,ML_Engineer_Junior,0.021234643745946278
+204,"Jika multi-class classification memiliki kelas jarang, bagaimana kamu mengatasi masalah tersebut?",Data_Analyst_Senior,0.014655307594744338,ML_Engineer_Junior,0.013935216786382968
+205,Bagaimana kamu melakukan hyperparameter tuning untuk model yang membutuhkan waktu training lama?,ML_Engineer_Junior,0.09476542751859038,ML_Engineer_Senior,0.042813282062960534
+206,Model cenderung memberikan hasil yang overconfident. Bagaimana kamu menurunkan overconfidence?,ML_Engineer_Senior,0.024898191432926917,ML_Engineer_Junior,0.018431573317419105
+207,"Jika dua model performanya mirip, bagaimana kamu memilih model yang lebih siap untuk produksi?",ML_Engineer_Senior,0.06119396923207846,ML_Engineer_Junior,0.03237337451521769
+208,Bagaimana kamu menggunakan SHAP atau LIME untuk menjelaskan prediksi model?,ML_Engineer_Senior,0.0314417616573379,ML_Engineer_Junior,0.019416171174158343
+209,Model kamu bekerja baik pada training tapi buruk pada data baru. Apakah ini masalah domain shift?,ML_Engineer_Senior,0.027878427918377836,Data_Engineer_Junior,0.024042505963271905
+210,"Jika dataset memiliki missing value yang tidak random, teknik imputasi apa yang kamu pilih?",Data_Engineer_Junior,0.03961171259263839,Data_Analyst_Junior,0.03810359976623996
+211,Bagaimana kamu merancang struktur fitur yang tetap stabil meski data berubah setiap hari?,Data_Engineer_Junior,0.02864335742964923,Data_Analyst_Junior,0.024797552552605087
+212,Model rekomendasi kamu memberikan rekomendasi terlalu generik. Bagaimana kamu membuatnya lebih personal?,Data_Analyst_Senior,0.033637670183538367,ML_Engineer_Senior,0.02132163732720086
+213,Bagaimana kamu menentukan kapan perlu melakukan feature selection vs feature extraction?,ML_Engineer_Senior,0.05234491933501605,ML_Engineer_Junior,0.029062328315596856
+214,"Jika outlier sangat memengaruhi model, bagaimana kamu memutuskan menghapus atau mentransformasinya?",Data_Analyst_Junior,0.025386955845987963,ML_Engineer_Senior,0.025024493122371115
+215,Bagaimana kamu memastikan model tidak bias terhadap kelompok tertentu?,ML_Engineer_Senior,0.028412286545068596,ML_Engineer_Junior,0.02103297920179058
+216,"Jika kamu harus memilih antara model interpretable vs akurat, bagaimana kamu memutuskan?",ML_Engineer_Senior,0.03571883121860993,ML_Engineer_Junior,0.019327635516737187
+217,"Model training sangat lambat. Bagaimana kamu memutuskan apakah masalahnya CPU, GPU, I/O atau batch size?",ML_Engineer_Senior,0.03165756588736557,Data_Engineer_Junior,0.020888525612672407
+218,Dataset sangat besar tidak muat di RAM. Bagaimana kamu melakukan training secara efisien?,Data_Engineer_Senior,0.00946883504235662,Data_Analyst_Junior,0.0
+219,"Jika business owner meminta model mudah dijelaskan, metode ML apa yang kamu pilih?",ML_Engineer_Senior,0.033594434022917216,ML_Engineer_Junior,0.01693111674810517
+220,Bagaimana kamu menghindari fitur yang bersifat data leakage?,Data_Engineer_Junior,0.040407611133122565,Data_Analyst_Junior,0.03498227688775198
+221,"Jika model berbasis tree overfitting, teknik apa yang kamu gunakan untuk mengontrolnya?",ML_Engineer_Junior,0.056874468453683026,ML_Engineer_Senior,0.029991160828929393
+222,Bagaimana kamu menangani categorical variable dengan 10.000 kategori?,Data_Analyst_Senior,0.013468473099520133,Data_Engineer_Junior,0.013251758347452056
+223,Model NLP kamu salah mengartikan konteks karena dataset noisy. Bagaimana kamu membersihkannya?,ML_Engineer_Senior,0.022546236474243864,ML_Engineer_Junior,0.016690473752938088
+224,Bagaimana kamu menentukan embedding dimension yang optimal untuk model deep learning?,ML_Engineer_Junior,0.061286054486291784,ML_Engineer_Senior,0.057812400621098506
+225,"Jika model CNN sulit mengenali objek kecil, bagaimana kamu memperbaikinya?",ML_Engineer_Junior,0.03674912373113956,ML_Engineer_Senior,0.026130589411135153
+226,Bagaimana kamu memutuskan apakah perlu augmentasi data pada dataset gambar?,Data_Engineer_Junior,0.035713650622694264,Data_Analyst_Junior,0.03091855172134699
+227,"Jika inference harus berjalan di device kecil, bagaimana kamu mengoptimalkan model?",ML_Engineer_Senior,0.06292656736170052,ML_Engineer_Junior,0.03566413451730975
+228,Model reinforcement learning kamu tidak stabil saat training. Bagaimana kamu memperbaikinya?,ML_Engineer_Junior,0.062164937891343156,ML_Engineer_Senior,0.038931605953506296
+229,Bagaimana kamu menentukan gamma dan learning rate pada model RL?,ML_Engineer_Junior,0.06316299662273467,ML_Engineer_Senior,0.059050766456735224
+230,"Jika reward function buruk, bagaimana kamu mendesain ulang reward?",Data_Analyst_Senior,0.017852473321923818,Data_Analyst_Junior,0.0
+231,Model time-series kamu tidak bisa menangkap pola musiman. Apa solusi terbaiknya?,ML_Engineer_Senior,0.03840230634296622,Data_Analyst_Senior,0.03272197987457927
+232,"Bagaimana kamu memilih antara ARIMA, Prophet, atau LSTM?",ML_Engineer_Senior,0.011250061183643032,Data_Analyst_Junior,0.0
+233,"Jika dataset time-series mengalami perubahan pola tiba-tiba, bagaimana kamu mendeteksi concept drift?",ML_Engineer_Senior,0.0561385420855203,Data_Analyst_Senior,0.03215819620131905
+234,"Model kamu memerlukan deteksi anomali, apa pendekatan yang kamu pilih?",ML_Engineer_Senior,0.026500181758917205,Data_Analyst_Junior,0.019784348116970617
+235,"Jika model menghasilkan banyak false positive, bagaimana kamu mengurangi jumlahnya?",ML_Engineer_Senior,0.02587052547981134,ML_Engineer_Junior,0.0191513704288861
+236,Bagaimana kamu melakukan cross-validation pada dataset time-series?,ML_Engineer_Junior,0.09353039926636347,Data_Analyst_Senior,0.0448839008779274
+237,"Jika model memprediksi nilai yang mustahil, apa langkah sanity check yang kamu lakukan?",ML_Engineer_Senior,0.023157054759037315,ML_Engineer_Junior,0.017142648844856688
+238,Bagaimana kamu menentukan jumlah cluster optimal pada data clustering?,Data_Engineer_Junior,0.03821689754360565,Data_Analyst_Junior,0.03308569980187169
+239,"Jika PCA tidak bekerja baik karena hubungan nonlinear, teknik apa yang kamu pakai?",Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+240,Bagaimana kamu mengatasi curse of dimensionality?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+241,"Jika model klasifikasi tidak stabil antar run, bagaimana kamu meningkatkan konsistensinya?",ML_Engineer_Junior,0.03714764384819129,ML_Engineer_Senior,0.025334655152266655
+242,Bagaimana kamu menentukan apakah data harus di-scale atau tidak sebelum training?,Data_Engineer_Junior,0.03331097541307379,Data_Analyst_Junior,0.028838472075525437
+243,"Jika dataset teks banyak mengandung typo, teknik preprocessing apa yang kamu gunakan?",Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+244,Bagaimana kamu memastikan bahwa pipeline fitur sama antara training dan inference?,ML_Engineer_Senior,0.07836649508349575,Data_Engineer_Senior,0.029686688572072923
+245,"Jika training berjalan di distributed cluster, bagaimana kamu menghindari deadlock?",Data_Engineer_Senior,0.021066757700105892,Data_Analyst_Junior,0.0
+246,Bagaimana kamu memilih antara batch vs online learning?,ML_Engineer_Senior,0.06428643758228893,ML_Engineer_Junior,0.051946602550917646
+247,"Jika dataset memiliki banyak noise, kapan kamu menggunakan robust model?",ML_Engineer_Senior,0.02655913517040941,ML_Engineer_Junior,0.019661132755741648
+248,Bagaimana kamu mengukur fairness model?,ML_Engineer_Senior,0.041233183279919206,ML_Engineer_Junior,0.030524001824861435
+249,Model regression memiliki error besar pada outlier. Bagaimana kamu menanganinya?,ML_Engineer_Junior,0.05616261858446625,Data_Analyst_Junior,0.027492136075702292
+250,"Jika model tidak generalize pada domain baru, bagaimana kamu melakukan domain adaptation?",ML_Engineer_Senior,0.023141020933561764,ML_Engineer_Junior,0.01713077936306692
+251,Bagaimana kamu memilih loss function untuk regression dan classification?,ML_Engineer_Junior,0.05590871920272235,ML_Engineer_Senior,0.026789178277233525
+252,"Jika model multi-label classification salah prediksi pada kombinasi label, bagaimana kamu memperbaikinya?",ML_Engineer_Junior,0.02877768627169243,ML_Engineer_Senior,0.021170553624612717
+253,Bagaimana kamu memilih arsitektur neural network berdasarkan tipe data?,Data_Engineer_Junior,0.07456877225006606,Data_Engineer_Senior,0.03953420552582222
+254,"Jika GPU memory selalu penuh, apa yang kamu lakukan?",Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+255,Bagaimana kamu mengatasi exploding gradient?,Data_Analyst_Junior,0.0,Data_Analyst_Senior,0.0
+256,"Jika model gagal convergence, bagaimana kamu mengatasi vanishing gradient?",ML_Engineer_Senior,0.028420520006399316,ML_Engineer_Junior,0.02103907424875743
+257,Bagaimana kamu menentukan batch size optimal?,Data_Engineer_Junior,0.03723544621138883,ML_Engineer_Senior,0.0174345330386144
+258,"Model forecasting error tinggi karena outlier, bagaimana kamu memperbaikinya?",Data_Analyst_Junior,0.028591620528632383,ML_Engineer_Senior,0.028183403146749428
+259,"Jika window size pada time-series tidak tepat, bagaimana kamu menemukannya?",Data_Analyst_Senior,0.056691349788847045,Data_Analyst_Junior,0.0
+260,Bagaimana kamu melakukan feature scaling pada data sparse?,ML_Engineer_Senior,0.07542449277428875,Data_Engineer_Junior,0.041434727770320805
+261,"Jika dataset imbalance ekstrem, mengapa accuracy bukan metrik yang tepat?",ML_Engineer_Junior,0.01963624252250221,Data_Analyst_Senior,0.017265146869385354
+262,Bagaimana kamu memilih evaluation metric berdasarkan tujuan bisnis?,Data_Analyst_Senior,0.03497021511382966,Data_Analyst_Junior,0.01654877457493507
+263,Model ensemble kamu terlalu berat untuk produksi. Bagaimana kamu menyederhanakannya?,ML_Engineer_Senior,0.04721825980220397,ML_Engineer_Junior,0.019434040798394295
+264,"Jika kamu melakukan stacking, bagaimana kamu memastikan base model tetap diverse?",ML_Engineer_Senior,0.026597319994597763,ML_Engineer_Junior,0.01968940012562417
+265,Bagaimana kamu mendesain pipeline ML yang tahan failure?,Data_Engineer_Senior,0.037209102846775886,ML_Engineer_Senior,0.0318388780086283
+266,"Jika ingin membuat ML system low-latency, komponen apa yang harus diperhatikan?",Data_Engineer_Senior,0.0519031918089016,ML_Engineer_Senior,0.02546658507811725
+267,Bagaimana kamu mendeteksi data poisoning attack?,Data_Engineer_Junior,0.04785859284621011,Data_Analyst_Junior,0.041432851372694625
+268,"Jika log inference tidak konsisten, bagaimana kamu melakukan observability?",ML_Engineer_Senior,0.04308227813012698,Data_Engineer_Senior,0.022948607567397087
+269,Bagaimana kamu memilih antara CPU serving dan GPU serving?,ML_Engineer_Senior,0.0673371852734885,Data_Analyst_Junior,0.0
+270,Model kamu harus berjalan di edge device. Arsitektur mana yang kamu rekomendasikan?,ML_Engineer_Senior,0.03592822438435199,ML_Engineer_Junior,0.01810731388385985
+271,Bagaimana kamu men-deploy model secara canary release?,ML_Engineer_Senior,0.028330210548722055,ML_Engineer_Junior,0.020972220180464202
+272,"Jika throughput inferensi rendah, bagaimana kamu meningkatkan parallelism?",Data_Engineer_Senior,0.020392358818877916,ML_Engineer_Senior,0.018782183540494737
+273,Bagaimana kamu memastikan golden dataset untuk regression testing model?,ML_Engineer_Junior,0.060009247651113075,Data_Analyst_Senior,0.041093770276815635
+274,"Jika model mengalami feedback loop bias, bagaimana kamu memutus rantai bias?",ML_Engineer_Senior,0.023211340279327693,ML_Engineer_Junior,0.01718283519935564
+275,Bagaimana kamu memonitor drift secara real-time?,ML_Engineer_Senior,0.036242637618604974,Data_Analyst_Senior,0.012985549890635129
+276,"Jika model tidak mau update karena data baru berbeda, bagaimana kamu menangani catastrophic forgetting?",Data_Engineer_Junior,0.03900980285018141,ML_Engineer_Senior,0.03247202981943213
+277,Bagaimana kamu membuat model continual learning?,ML_Engineer_Junior,0.09206566019669427,ML_Engineer_Senior,0.05765732463035632
+278,"Jika pipeline ML gagal di tahap feature generation, apa yang kamu cek?",ML_Engineer_Senior,0.05129937925287563,Data_Engineer_Senior,0.02857253423553002
+279,Bagaimana kamu menyatukan logic rule-based dan ML dalam satu sistem?,ML_Engineer_Senior,0.03869478356472839,Data_Engineer_Senior,0.011368796424295037
+280,"Jika terjadi perubahan besar pada input distribution, bagaimana kamu melakukan redeployment?",Data_Engineer_Senior,0.010436030055634055,Data_Analyst_Junior,0.0
+281,"Bagaimana kamu memilih antara MLOps tool seperti MLflow, Kubeflow, atau SageMaker?",ML_Engineer_Senior,0.04371440534400358,Data_Analyst_Junior,0.0
+282,"Jika storage besar dipakai menyimpan model versi lama, bagaimana kamu melakukan model pruning?",ML_Engineer_Junior,0.06930212941135028,ML_Engineer_Senior,0.05942978305254406
+283,Bagaimana kamu membuat model robust terhadap adversarial attack?,ML_Engineer_Senior,0.029649770282000592,ML_Engineer_Junior,0.021949060688585324
+284,"Jika model harus explainable untuk auditor, teknik apa yang kamu gunakan?",ML_Engineer_Senior,0.03248185880091017,ML_Engineer_Junior,0.02005846038166015
+285,Bagaimana kamu mendesain arsitektur ML end-to-end dari data ingestion sampai monitoring?,ML_Engineer_Senior,0.2073737828713526,Data_Engineer_Senior,0.04428707879652036
+286,Model mengalami inference spike sesaat yang membahayakan sistem. Bagaimana kamu menstabilkannya?,ML_Engineer_Senior,0.07088734118483903,ML_Engineer_Junior,0.01791926136014134

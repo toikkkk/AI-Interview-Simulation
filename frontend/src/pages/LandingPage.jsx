@@ -5,7 +5,8 @@ import DescriptionInput from "../components/DescriptionInput.jsx";
 import InterviewPage from "./InterviewPage.jsx";
 
 function LandingPage() {
-
+  
+  
   const [role, setRole] = useState("Data_Analyst");
   const [level, setLevel] = useState("Junior");
   const [description, setDescription] = useState("");
@@ -21,20 +22,23 @@ function LandingPage() {
   const [isFinalAnalysisOpen, setIsFinalAnalysisOpen] = useState(false);
 
   const [loading, setLoading] = useState(false);
+  
 
   // ====== Fetch Analisis Text Mining Akhir ======
   const fetchFinalTextMiningAnalysis = async () => {
-    const payload = { role, level, description };
+  const questionCount = level === "Junior" ? 3 : 5;   // <-- TAMBAH INI
+  const payload = { role, level, description, n: questionCount }; // <-- TAMBAH n
 
-    const res = await fetch("http://localhost:5001/api/textmining/analysis", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
+  const res = await fetch("http://localhost:5001/api/textmining/analysis", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
 
-    const data = await res.json();
-    setFinalAnalysisData(data);
-  };
+  const data = await res.json();
+  setFinalAnalysisData(data);
+};
+
 
   // ====== Mulai Interview ======
   const handleStartInterview = async () => {

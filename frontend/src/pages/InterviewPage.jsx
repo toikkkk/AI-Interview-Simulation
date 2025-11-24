@@ -12,7 +12,6 @@ function InterviewPage({
   questions,
   role,
   level,
-  currentIndex,
   answers,
   isInterviewDone,
   finalAnalysisData,
@@ -33,7 +32,7 @@ function InterviewPage({
         </div>
 
         <div className="interview-chip">
-          <span>{prettyRole(role)}</span>·<span>{level}</span>
+          <span>{prettyRole(role)}</span> · <span>{level}</span>
         </div>
       </div>
 
@@ -60,11 +59,15 @@ function InterviewPage({
         </ul>
       )}
 
-      {/* MODAL ANALISIS FINAL */}
+      {/* MODAL FINAL */}
       {isFinalAnalysisOpen && finalAnalysisData && (
         <TextMiningFinalModal
-          data={finalAnalysisData}
+          isOpen={isFinalAnalysisOpen}
           onClose={onCloseFinalAnalysis}
+          nlp={finalAnalysisData.nlp}
+          tfidf={finalAnalysisData.tfidf}
+          similarity={finalAnalysisData.similarity}
+          wordcloudImage={finalAnalysisData.wordcloud}
         />
       )}
     </div>
