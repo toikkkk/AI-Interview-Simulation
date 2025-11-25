@@ -150,48 +150,80 @@ def load_raw_csv(path: str) -> pd.DataFrame:
 def pseudo_label(df: pd.DataFrame) -> pd.DataFrame:
     questions = df["question"].tolist()
 
-    # gabungkan pertanyaan + seed (supaya vektor TF-IDF seragam)
-    all_texts = questions + list(SEEDS.values())
+    # Seed diproses ulang (list kata penting saja)
+    seed_clean = {k: clean_text(v) for k, v in SEEDS.items()}
 
-    # ---------- TF-IDF ----------
-    vec = TfidfVectorizer(
-        preprocessor=clean_text,     # gunakan teks yang sudah dibersihkan
-        ngram_range=(1, 2),          # unigram + bigram
-        max_features=30000
+    # TF-IDF Unigram + Bigram
+    vec_main = TfidfVectorizer(
+        preprocessor=clean_text,
+        ngram_range=(1, 2),
+        max_features=20000
     )
-    X_all = vec.fit_transform(all_texts)          # fit TF-IDF untuk semua teks
+    X_main = vec_main.fit_transform(questions + list(seed_clean.values()))
 
-    Xq = X_all[:len(df)]                          # vektor pertanyaan
-    seed_vecs = {label: vec.transform([seed])     # vektor tiap seed
-                  for label, seed in SEEDS.items()}
+    Xq_main = X_main[:len(df)]
+    seed_vecs_main = {
+        label: vec_main.transform([seed_clean[label]])
+        for label in SEEDS
+    }
 
-    labels = []
-    scores = []
-    second_labels = []
-    second_scores = []
+    # TF-IDF Unigram saja untuk stabilitas
+    vec_uni = TfidfVectorizer(
+        preprocessor=clean_text,
+        ngram_range=(1, 1),
+        max_features=15000
+    )
+    X_uni = vec_uni.fit_transform(questions + list(seed_clean.values()))
 
-    # ---------- COSINE SIMILARITY ----------
-    # pilih label dengan skor similarity tertinggi
-    for i in range(Xq.shape[0]):
-        sims = {label: float(linear_kernel(seed_vecs[label], Xq[i])[0, 0])
-                for label in SEEDS}
+    Xq_uni = X_uni[:len(df)]
+    seed_vecs_uni = {
+        label: vec_uni.transform([seed_clean[label]])
+        for label in SEEDS
+    }
 
-        sorted_sims = sorted(sims.items(), key=lambda x: x[1], reverse=True)
+    labels, scores, second_labels, second_scores = [], [], [], []
 
-        best_lbl, best_score = sorted_sims[0]     # label paling mirip
-        snd_lbl, snd_score = sorted_sims[1]       # label kedua
+    for i in range(Xq_main.shape[0]):
+
+        # similarity bigram
+        sims_main = {
+            lbl: float(linear_kernel(seed_vecs_main[lbl], Xq_main[i])[0, 0])
+            for lbl in SEEDS
+        }
+        # similarity unigram
+        sims_uni = {
+            lbl: float(linear_kernel(seed_vecs_uni[lbl], Xq_uni[i])[0, 0])
+            for lbl in SEEDS
+        }
+
+        # combined score
+        sims_final = {
+            lbl: 0.7 * sims_main[lbl] + 0.3 * sims_uni[lbl]
+            for lbl in SEEDS
+        }
+
+        # ranking
+        sorted_sims = sorted(sims_final.items(), key=lambda x: x[1], reverse=True)
+
+        best_lbl, best_score = sorted_sims[0]
+        snd_lbl, snd_score = sorted_sims[1]
+
+        # Stabilizer:
+        # jika perbedaan antar label tipis → pilih second label
+        if (best_score - snd_score) < 0.02:
+            best_lbl, best_score = snd_lbl, snd_score
 
         labels.append(best_lbl)
         scores.append(best_score)
         second_labels.append(snd_lbl)
         second_scores.append(snd_score)
 
-    # tambahkan hasil ke dataframe
     df["pseudo_label"] = labels
     df["pseudo_score"] = scores
     df["second_label"] = second_labels
     df["second_score"] = second_scores
     return df
+
 
 
 # MAIN EXECUTION

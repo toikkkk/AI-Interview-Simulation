@@ -1,44 +1,51 @@
 def find_main_topic(text: str):
-    """Rule-based topic modelling (sederhana)."""
+    """Topic modelling rule-based + scoring (upgraded, tetap ringan)."""
     t = text.lower()
 
-    topic_rules = {
-        "data cleaning": ["cleaning", "bersih", "preprocessing"],
-        "data analysis": ["analisis", "analysis", "statistik"],
-        "machine learning": ["model", "training", "prediksi", "classification"],
-        "visualization": ["dashboard", "visual", "grafik"],
-        "database": ["sql", "query", "database"]
+    TOPIC_RULES = {
+        "Data Analyst": {
+            "keywords": ["kpi","dashboard","eda","ab testing","cohort","retention","conversion","insight","visualisasi data","tableau","power bi","looker"],
+            "weight": 1.0
+        },
+        "Data Engineer": {
+            "keywords": ["etl","pipeline","data pipeline","airflow","spark","kafka","bigquery","lakehouse","data warehouse","streaming","batch processing"],
+            "weight": 1.2
+        },
+        "ML Engineer": {
+            "keywords": ["model","training","feature engineering","xgboost","lightgbm","mlflow","optuna","drift","deployment","classification","regression"],
+            "weight": 1.1
+        }
     }
 
-    best_topic = None
-    best_score = 0
+    scores = {}
+    for topic, rule in TOPIC_RULES.items():
+        s = 0.0
+        for kw in rule["keywords"]:
+            if kw in t:
+                s += rule["weight"]
+        scores[topic] = s
 
-    for topic, keywords in topic_rules.items():
-        score = sum(1 for k in keywords if k in t)
-        if score > best_score:
-            best_topic = topic
-            best_score = score
+    best_topic = max(scores, key=scores.get) if scores else None
+    best_score = scores.get(best_topic, 0.0)
 
     return best_topic, best_score
 
 
 def find_secondary_topics(text: str, main_topic: str):
-    """Secondary topics (yang tidak menjadi topik utama)."""
+    """Cari topik sekunder yang juga muncul di teks (upgraded)."""
     t = text.lower()
-    result = []
 
-    all_topics = {
-        "data cleaning": ["cleaning", "bersih", "preprocessing"],
-        "data analysis": ["analisis", "analysis", "statistik"],
-        "machine learning": ["model", "training", "prediksi", "classification"],
-        "visualization": ["dashboard", "visual", "grafik"],
-        "database": ["sql", "query", "database"]
+    TOPIC_KEYWORDS = {
+        "Data Analyst": ["kpi","dashboard","eda","ab testing","cohort","retention","conversion","visualisasi data"],
+        "Data Engineer": ["etl","pipeline","airflow","spark","kafka","bigquery","lakehouse","data warehouse","streaming"],
+        "ML Engineer": ["model","training","feature engineering","xgboost","mlflow","optuna","deployment","drift"]
     }
 
-    for topic, keywords in all_topics.items():
+    result = []
+    for topic, kws in TOPIC_KEYWORDS.items():
         if topic == main_topic:
             continue
-        if any(k in t for k in keywords):
+        if any(kw in t for kw in kws):
             result.append(topic)
 
     return result
