@@ -1,4 +1,5 @@
 import React from "react";
+import TextMiningRankTable from "./TextMiningRankTable";
 
 const chipStyle = {
   padding: "6px 12px",
@@ -22,12 +23,13 @@ const sectionCard = {
 export default function TextMiningFinalModal({
   isOpen,
   onClose,
-  analysis,
   nlp,
   tfidf,
   similarity,
+  rankedTable,
   wordcloudImage,
 }) {
+
   if (!isOpen) return null;
 
   return (
@@ -107,6 +109,11 @@ export default function TextMiningFinalModal({
           ))}
         </div>
 
+          {/* =====================
+      DETAIL RANKING
+===================== */}
+<TextMiningRankTable table={rankedTable} />
+
         {/* ============================
               PREMIUM NLP ANALYSIS
         ============================= */}
@@ -167,18 +174,6 @@ export default function TextMiningFinalModal({
             ))
           ) : (
             <p style={{ fontSize: "14px", color: "#6b7280" }}>Tidak ada topik sekunder.</p>
-          )}
-        </div>
-
-        {/* Auto Keywords */}
-        <div style={sectionCard}>
-          <h4 style={{ margin: "0 0 8px" }}>✨ Auto Keywords (YAKE)</h4>
-          {nlp?.auto_keywords?.length > 0 ? (
-            nlp.auto_keywords.map((k, idx) => (
-              <span key={idx} style={chipStyle}>{k}</span>
-            ))
-          ) : (
-            <p style={{ fontSize: "14px", color: "#6b7280" }}>Tidak ada auto-keywords.</p>
           )}
         </div>
       </div>

@@ -4,15 +4,18 @@ def find_main_topic(text: str):
 
     TOPIC_RULES = {
         "Data Analyst": {
-            "keywords": ["kpi","dashboard","eda","ab testing","cohort","retention","conversion","insight","visualisasi data","tableau","power bi","looker"],
+            "keywords": ["kpi","dashboard","eda","ab testing","cohort","retention","conversion","insight","visualisasi data",
+            "tableau","power bi","looker","cohort","conversion","retention","kpi","dashboard","tableau","power bi","looker","ab testing"],
             "weight": 1.0
         },
         "Data Engineer": {
-            "keywords": ["etl","pipeline","data pipeline","airflow","spark","kafka","bigquery","lakehouse","data warehouse","streaming","batch processing"],
+            "keywords": ["etl","pipeline","data pipeline","airflow","spark","kafka","bigquery","lakehouse","data warehouse","streaming",
+                         "batch processing","mysql","postgresql","bigquery","data warehouse","lakehouse","spark","airflow","kafka","pipelines"],
             "weight": 1.2
         },
         "ML Engineer": {
-            "keywords": ["model","training","feature engineering","xgboost","lightgbm","mlflow","optuna","drift","deployment","classification","regression"],
+            "keywords": ["model","training","feature engineering","xgboost","lightgbm","mlflow","optuna","drift","deployment","classification",
+                         "regression","training","classification","regression","tuning","xgboost","mlflow","model drift","deployment"],
             "weight": 1.1
         }
     }

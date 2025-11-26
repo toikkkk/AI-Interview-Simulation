@@ -8,7 +8,6 @@ import numpy as np
 from services.nlp_service import run_nlp
 from ml.retrieval import build_label
 
-# === TAMBAHAN IMPORT UNTUK WORDCLOUD IMAGE (AMAN) ===
 import io
 import base64
 
@@ -48,13 +47,13 @@ def _try_build_wordcloud_image(freq_dict):
     except Exception:
         return None
 
-# ========================
+
 # STOPWORDS sederhana (Indo + English) untuk filter TF-IDF output
-# ========================
+
 STOPWORDS = set([
-    # =======================
+    
     # STOPWORDS INDONESIA UMUM
-    # =======================
+    
     "dan","yang","di","ke","dari","untuk","pada","dengan","atau","itu","ini",
     "saya","kami","kamu","dia","mereka","sebagai","dalam","agar","karena",
     "oleh","tentang","tanpa","hingga","sampai","sejak","antara","selama",
@@ -81,9 +80,9 @@ STOPWORDS = set([
     "apa","siapa","kapan","dimana","mengapa","kenapa","bagaimana","berapa",
     "apakah","yangmana","dari mana","ke mana",
 
-    # =======================
+    
     # KATA KERJA UMUM CV (TIDAK INFORMATIF)
-    # =======================
+    
     "menggunakan","melakukan","mengerjakan","menangani","membuat","membangun",
     "merancang","mengembangkan","menyusun","mengelola","mengatur","memimpin",
     "menganalisis","mengolah","memproses","meningkatkan","memperbaiki",
@@ -100,9 +99,9 @@ STOPWORDS = set([
     "ensure","ensured","monitor","monitored","optimize","optimized",
     "report","reported","deliver","delivered",
 
-    # =======================
+    
     # STOPWORDS INGGRIS UMUM
-    # =======================
+    
     "the","a","an","to","of","in","on","for","with","and","or","is","are",
     "was","were","be","been","being","it","this","that","these","those",
     "as","at","by","from","into","about","over","under","between","within",
@@ -110,18 +109,18 @@ STOPWORDS = set([
     "more","most","less","very","just","only","also","still","already",
     "yet","not","no","yes",
 
-    # =======================
+    
     # FILLER / GENERIC WORK WORDS
     # (sering muncul tapi kurang spesifik)
-    # =======================
+    
     "pengalaman","project","proyek","tugas","pekerjaan","kerja","bekerja","tim",
     "team","member","anggota","company","perusahaan","client","klien",
     "tahun","bulan","minggu","hari","waktu","proses","hasil","target",
     "laporan","report","presentasi","presentation",
 
-    # =======================
+    
     # ANGKA / SIMBOL UMUM (opsional)
-    # =======================
+    
     "1","2","3","4","5","6","7","8","9","0"
 ])
 
@@ -153,9 +152,9 @@ def get_analysis_service(df, role, level, description, n=None):
         subset = df.copy()
     subset = subset.reset_index(drop=True)
 
-    # ========================
+    
     # TOP-K: prioritas dari request n, fallback dari level
-    # ========================
+    
     if n is not None:
         try:
             top_k = int(n)
@@ -165,16 +164,16 @@ def get_analysis_service(df, role, level, description, n=None):
         lvl = str(level or "").strip().lower()
         top_k = 3 if "junior" in lvl else 5
 
-    # ========================
+    
     # POOL UNTUK RANKING TOP-K
     # kalau subset kurang dari top_k → pakai full df
-    # ========================
+    
     rank_pool = subset if len(subset) >= top_k else df.copy()
     rank_pool = rank_pool.reset_index(drop=True)
 
-    # ========================
+    
     # TF-IDF UNTUK rank_pool
-    # ========================
+    
     vec = TfidfVectorizer(preprocessor=clean_text, ngram_range=(1, 2))
     X = vec.fit_transform(rank_pool["question"])
     qv = vec.transform([description])
@@ -182,9 +181,9 @@ def get_analysis_service(df, role, level, description, n=None):
     sims = linear_kernel(qv, X).ravel()
     order = sims.argsort()[::-1][:top_k]
 
-    # ========================
+    
     # TOP QUESTIONS + similarity (ikut top_k)
-    # ========================
+    
     top_questions = [{
         "question": rank_pool.loc[i, "question"],
         "score": float(sims[i])
@@ -195,9 +194,9 @@ def get_analysis_service(df, role, level, description, n=None):
         for i in order
     ]
 
-    # ========================
+    
     # USER TF-IDF KEYWORDS (rapi, tanpa override)
-    # ========================
+    
     feature_names = vec.get_feature_names_out()
     arr = qv.toarray()[0]
 
@@ -221,11 +220,84 @@ def get_analysis_service(df, role, level, description, n=None):
     freq_dict = {d["word"]: d["weight"] for d in wordcloud_data}
     wordcloud_image = _try_build_wordcloud_image(freq_dict)
 
-    # similarity matrix (top_k x top_k)
+    # similarity matrix (top_k x top_k) 
     Xm = X[order]
     matrix = linear_kernel(Xm, Xm).tolist()
 
     nlp_result = run_nlp(description)
+    
+    # RANKING TABLE (TF-IDF + NLP SMART MATCHING)
+   
+    ranked_table = []
+    for idx, i in enumerate(order):
+
+        question_text = rank_pool.loc[i, "question"].lower()
+
+        
+        # NLP MATCHING LOGIC
+        
+
+        match_score = 0
+
+        if nlp_result:
+
+            # 3 poin untuk SKILLS
+            for t in nlp_result.get("skills", []):
+                if isinstance(t, str) and t.lower() in question_text:
+                    match_score += 3
+
+            # 2 poin untuk TOOLS
+            for t in nlp_result.get("tools", []):
+                if isinstance(t, str) and t.lower() in question_text:
+                    match_score += 2
+
+            # 2 poin untuk CONCEPTS
+            for t in nlp_result.get("key_concepts", []):
+                if isinstance(t, str) and t.lower() in question_text:
+                    match_score += 2
+
+            # 1 poin untuk AUTO KEYWORDS
+            for t in nlp_result.get("auto_keywords", []):
+                if isinstance(t, str) and t.lower() in question_text:
+                    match_score += 1
+
+        # Normalisasi NLP strength biar 0–1
+        max_possible = 3*len(nlp_result.get("skills", [])) \
+                     + 2*len(nlp_result.get("tools", [])) \
+                     + 2*len(nlp_result.get("key_concepts", [])) \
+                     + 1*len(nlp_result.get("auto_keywords", []))
+
+        if max_possible == 0:
+            nlp_strength = 0
+        else:
+            nlp_strength = match_score / max_possible   # 0–1 but scalable
+
+        
+        # FINAL SCORING
+        
+        # FINAL SCORING (TF-IDF + NLP BOOST)
+
+        tfidf_raw = float(sims[i])
+
+        nlp_boost = (
+                     (match_score * 0.30)    
+                    )
+# Final score lebih besar dari TF-IDF
+        final_score = tfidf_raw + nlp_boost
+
+# ------------------------------
+
+
+        ranked_table.append({
+            "rank": idx + 1,
+            "id": int(rank_pool.loc[i, "id"]) if "id" in rank_pool.columns else None,
+            "question": rank_pool.loc[i, "question"],
+            "tfidf_raw": tfidf_raw,
+            "match_nlp": match_score,
+            "nlp_strength": nlp_strength,
+            "final_score": final_score
+            })
+
 
     return {
         "top_questions": top_questions,
@@ -234,6 +306,7 @@ def get_analysis_service(df, role, level, description, n=None):
         "nlp": nlp_result,
 
         "wordcloud_data": wordcloud_data,
+        "ranked_table": ranked_table,
 
         "tfidf": tfidf,
         "similarity": similarity,

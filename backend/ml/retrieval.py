@@ -12,6 +12,8 @@ def build_label(role: str, level: str) -> str:
     Data_Analyst_Junior
     Data_Analyst_Senior
     ML_Engineer_Junior
+    ML_Engineer_Senior
+    Data_Engineer_Junior
     Data_Engineer_Senior
     """
     role_fixed = role.replace(" ", "_")
@@ -57,7 +59,7 @@ def _nlp_match_count(question: str, user_terms: set) -> int:
 
 def get_ranked_questions(df, role, level, description, n=10, nlp_boost=True, alpha=0.05):
     """
-    TF-IDF retrieval + NLP re-ranking (tanpa menghilangkan retrieval).
+    TF-IDF retrieval + NLP re-ranking
     - nlp_boost: aktifkan bonus NLP
     - alpha: bobot bonus per term match (kecil agar TF-IDF tetap dominan)
     """
@@ -86,7 +88,7 @@ def get_ranked_questions(df, role, level, description, n=10, nlp_boost=True, alp
     subset["score_raw"] = scores   # skor TF-IDF asli
     subset["score"] = scores       # skor final default = TF-IDF
 
-    # 4) NLP re-ranking (bonus kecil)
+    # 4) NLP re-ranking
     if nlp_boost:
         user_terms = _extract_user_terms(description)
 

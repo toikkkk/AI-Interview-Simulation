@@ -5,34 +5,52 @@ import yake
 # =========================
 SKILL_PHRASES = [
     # DA skills
-    "data cleaning", "cleaning data", "visualisasi data", "eda", "exploratory data analysis",
-    "ab testing", "eksperimen", "cohort analysis", "funnel analysis",
-    "time series", "forecasting", "statistik deskriptif", "insight bisnis",
-    "dashboard", "kpi", "retention", "conversion rate", "churn",
+    "data cleaning","cleaning data","data wrangling","preprocessing data",
+    "eda","exploratory data analysis","analisis deskriptif","statistik deskriptif",
+    "visualisasi data","data visualization","kpi","business insight",
+    "ab testing","hypothesis testing","cohort analysis","funnel analysis",
+    "churn analysis","retention analysis","forecasting","time series",
+    "segmentation","customer segmentation",
 
     # DE skills
-    "etl", "extract transform load", "data pipeline", "pipeline data",
-    "streaming", "stream processing", "batch processing",
-    "data warehouse", "lakehouse", "data lake",
-    "partitioning", "clustering", "data quality", "data governance",
+    "etl","etl pipeline","data pipeline","extract transform load",
+    "batch processing","stream processing","streaming pipeline",
+    "data warehouse","data lake","lakehouse","delta lake",
+    "big data","distributed system","data lineage","schema design",
+    "data validation","data quality","orchestration","workflow",
 
     # ML skills
-    "feature engineering", "hyperparameter tuning",
-    "classification", "regression", "clustering",
-    "fraud detection", "credit scoring", "model drift", "retraining"
+    "feature engineering","hyperparameter tuning","model training",
+    "cross validation","classification","regression","clustering",
+    "model deployment","model monitoring","model drift","retraining",
+    "fraud detection","credit scoring"
 ]
 
 TOOL_PHRASES = [
-    "python","pandas","numpy","sql","excel","tableau","power bi","looker","looker studio",
-    "airflow","spark","kafka","bigquery","google cloud storage","postgresql","mysql",
-    "docker","kubernetes","mlflow","optuna","xgboost","lightgbm","fastapi","flask",
-    "scikit learn","sklearn"
+    # Python stack
+    "python","pandas","numpy","sql","mysql","postgresql","bigquery",
+    "tableau","power bi","looker","looker studio",
+
+    # Data engineer tools
+    "airflow","spark","kafka","gcs","google cloud storage",
+    "github actions","docker","docker compose","kubernetes",
+
+    # ML stack
+    "scikit learn","sklearn","xgboost","lightgbm",
+    "mlflow","optuna","fastapi","flask"
 ]
 
 CONCEPT_PHRASES = [
-    "kpi","retention","conversion rate","cac","lifetime value","churn",
-    "etl","data warehouse","lakehouse","streaming",
-    "classification","regression","clustering","confusion matrix","f1 score"
+    # DA
+    "kpi","retention","conversion rate","cac","ltv","lifetime value",
+    "correlation","time series","forecasting",
+
+    # DE
+    "etl","data warehouse","lakehouse","streaming","batch",
+
+    # ML
+    "classification","regression","clustering",
+    "confusion matrix","recall","precision","f1 score"
 ]
 
 SIMPLE_STOPWORDS = {

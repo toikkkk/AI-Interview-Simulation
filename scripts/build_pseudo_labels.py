@@ -18,7 +18,6 @@ def clean_text(text: str) -> str:
 
 
 # SEED DESKRIPSI (ROLE x LEVEL)
-# Boleh kamu tambah kata2 Indonesia kalau mau makin relevan
 
 SEEDS = {
     

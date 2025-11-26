@@ -28,7 +28,10 @@ NORMALIZE_MAP = {
 TECH_TERMS_SET = {
     "python","pandas","numpy","sql","tableau","power bi","looker","airflow","spark","kafka",
     "bigquery","postgresql","mysql","flask","fastapi","docker","kubernetes","mlflow","optuna",
-    "xgboost","lightgbm","svm","knn","etl","eda","ab testing","cicd","mlops","api","dag"
+    "xgboost","lightgbm","svm","knn","etl","eda","ab testing","cicd","mlops","api","dag",
+    "window function","cte","cross validation","data lineage","feature engineering",
+    "logistic regression","random forest","svm","xgboost","lightgbm",
+    "churn","forecasting","cohort","funnel","hyperparameter","optuna","mlflow"
 }
 
 

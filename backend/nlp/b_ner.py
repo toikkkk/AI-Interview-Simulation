@@ -1,4 +1,4 @@
-# b_ner.py — versi aman & ringan TANPA stanza & TANPA torch
+# b_ner.py —
 
 def extract_entities(text: str):
     """

@@ -62,13 +62,14 @@ function InterviewPage({
       {/* MODAL FINAL */}
       {isFinalAnalysisOpen && finalAnalysisData && (
         <TextMiningFinalModal
-          isOpen={isFinalAnalysisOpen}
-          onClose={onCloseFinalAnalysis}
-          nlp={finalAnalysisData.nlp}
-          tfidf={finalAnalysisData.tfidf}
-          similarity={finalAnalysisData.similarity}
-          wordcloudImage={finalAnalysisData.wordcloud}
-        />
+   isOpen={isFinalAnalysisOpen}
+   onClose={onCloseFinalAnalysis}
+   nlp={finalAnalysisData.nlp}
+   tfidf={finalAnalysisData.tfidf}
+   similarity={finalAnalysisData.similarity}
+   rankedTable={finalAnalysisData.ranked_table}   // 🔥 TAMBAHAN
+   wordcloudImage={finalAnalysisData.wordcloud}
+/>
       )}
     </div>
   );
